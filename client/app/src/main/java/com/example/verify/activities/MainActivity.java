@@ -1,8 +1,10 @@
-package com.example.verify;
+package com.example.verify.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.verify.R;
 
 public class MainActivity extends AppCompatActivity {
 
