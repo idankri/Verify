@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Verify</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="verify">Verify</string>
+    <string name="dummy_search_header">עדיין מתלבטים? בדקו מה דיירים
+קודמים חושבים על הדירה...</string>
+    <string name="dummy_search_hint">*יש להזין מהי הכתובת המלאה</string>
 </resources>
