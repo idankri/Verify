@@ -7,28 +7,41 @@ import androidx.fragment.app.Fragment;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
+import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.verify.R;
 import com.example.verify.fragments.DummySearchFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ActionBar mActionBar;
+    private Fragment mDummySearchFragment;
+    private LottieAnimationView mLottieAnimationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Set up action bar
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setCustomView(R.layout.toolbar);
-        actionBar.setElevation(0);
-        actionBar.hide();
-        //View view = getSupportActionBar().getCustomView();
-
         setContentView(R.layout.activity_main);
-        // Set up animation
+        // Set up action bar
+        mActionBar = getSupportActionBar();
+        mDummySearchFragment = new DummySearchFragment();
+
+        setUpActionBar();
+        setUpAnimation();
+    }
+
+    private void setUpActionBar(){
+        mActionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        mActionBar.setDisplayShowCustomEnabled(true);
+        mActionBar.setCustomView(R.layout.toolbar);
+        mActionBar.setElevation(0);
+        mActionBar.hide();
+        //View view = getSupportActionBar().getCustomView();
+    }
+
+    private void setUpAnimation(){
         LottieAnimationView lottieAnimationView = findViewById(R.id.init_animation_view);
-        Fragment dummySearchFragment = new DummySearchFragment();
         lottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -39,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
                 getSupportFragmentManager().
                         beginTransaction()
-                        .replace(R.id.container_fragment, dummySearchFragment)
+                        .replace(R.id.container_fragment, mDummySearchFragment)
                         .commit();
-                actionBar.show();
+                mActionBar.show();
             }
 
             @Override
@@ -54,7 +67,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 }
