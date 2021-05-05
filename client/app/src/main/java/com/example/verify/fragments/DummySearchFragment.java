@@ -15,7 +15,7 @@ import com.example.verify.R;
  * Use the {@link DummySearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DummySearchFragment extends Fragment {
+public class DummySearchFragment extends BaseFragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,8 +39,8 @@ public class DummySearchFragment extends Fragment {
      * @return A new instance of fragment DummySearchFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DummySearchFragment newInstance(String param1, String param2) {
-        DummySearchFragment fragment = new DummySearchFragment();
+    public static BaseFragment newInstance(String param1, String param2) {
+        BaseFragment fragment = new DummySearchFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

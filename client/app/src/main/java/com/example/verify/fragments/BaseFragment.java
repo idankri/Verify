@@ -2,11 +2,13 @@ package com.example.verify.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.verify.R;
 
@@ -21,6 +23,10 @@ public class BaseFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private ImageView mAddApr;
+    private ImageView mSearchApr;
+    private TabState mTabState = TabState.Search;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -55,6 +61,8 @@ public class BaseFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -62,5 +70,40 @@ public class BaseFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_base, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mAddApr = this.getView().findViewById(R.id.add_apr_button);
+        mSearchApr = this.getView().findViewById(R.id.search_apr_button);
+
+        mAddApr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mTabState == TabState.Search){
+                    mAddApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_apr_button_focused));
+                    mSearchApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_search_apr_button));
+                    mTabState = TabState.Add;
+                }
+
+            }
+        });
+
+        mSearchApr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mTabState == TabState.Add){
+                    mAddApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_apr_button));
+                    mSearchApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_search_apr_button_focused));
+                    mTabState = TabState.Search;
+                }
+            }
+        });
+    }
+
+    private enum TabState{
+        Search,
+        Add
     }
 }
