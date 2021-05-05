@@ -10,6 +10,14 @@
         android:layout_height="wrap_content" >
 
         <ImageView
+            android:id="@+id/search_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"/>
+
+        <ImageView
             android:id="@+id/verify_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,12 +27,23 @@
             android:src="@drawable/ic_verify_top_bar_logo" />
 
         <ImageView
+            android:id="@+id/verify_text_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/verify_logo"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="5.46dp"
             android:src="@drawable/ic_verify_top_bar_text" />
+
+        <ImageView
+
+            android:id="@+id/back_arrow_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_down"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"/>
 
 
     </RelativeLayout>
