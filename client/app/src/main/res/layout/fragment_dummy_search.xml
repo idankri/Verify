@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.DummySearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <include layout="@layout/fragment_base" />
 
     <ImageView
         android:layout_width="289dp"
@@ -29,4 +29,5 @@
         android:gravity="right|center_vertical"
         android:letterSpacing="0.04"
         />
+
 </RelativeLayout>
