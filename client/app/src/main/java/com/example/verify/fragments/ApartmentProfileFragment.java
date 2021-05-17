@@ -2,13 +2,19 @@ package com.example.verify.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.verify.R;
+import com.example.verify.components.ApartmentProfile;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,8 +32,28 @@ public class ApartmentProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private ApartmentProfile mProfile;
+
     public ApartmentProfileFragment() {
         // Required empty public constructor
+    }
+
+    public void setProfile(ApartmentProfile profile){
+        mProfile = profile;
+    }
+
+    public void createFromApartmentProfile(ApartmentProfile apartmentProfile){
+        // TODO: update to be null safe and make more abstract6
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_address)).setText(
+                "רחוב " + apartmentProfile.getStreet() + " " + apartmentProfile.getBuilding()
+        + ", " + apartmentProfile.getCity());
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.floor_number_text)).setText(
+                apartmentProfile.getFloor()
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_number_text)).setText(
+                apartmentProfile.getApartment()
+        );
+
     }
 
     /**
@@ -55,6 +81,13 @@ public class ApartmentProfileFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        createFromApartmentProfile(mProfile);
     }
 
     @Override
