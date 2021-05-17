@@ -16,26 +16,27 @@
         android:layout_marginTop="34dp"
         android:src="@drawable/ic_dummy_search_header_text" />
 
-    <TextView
-        android:id="@+id/some_id"
-        android:layout_width="200dp"
-        android:layout_height="17dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="147dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="183dp"
-        android:text="@string/dummy_search_hint"
-        android:textAppearance="@style/dummy_search_hint"
-        android:gravity="right|center_vertical"
-        android:letterSpacing="0.04"
-        />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/dummy_button"
+        android:layout_width="274dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="66dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="186dp"
         android:src="@drawable/ic_dummy_button"
-        android:layout_marginTop="215dp"
-        android:layout_marginStart="60dp"
         android:elevation="10dp"/>
+
+    <ImageView
+        android:layout_width="343dp"
+        android:layout_height="338dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="277dp"
+        android:src="@drawable/ic_dummy_search_drawing" />
+
+
 
 </RelativeLayout>

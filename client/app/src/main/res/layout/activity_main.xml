@@ -9,6 +9,7 @@
     tools:context=".activities.MainActivity">
 
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/init_animation_view"
         android:layout_width="match_parent"
@@ -25,6 +26,8 @@
         android:name="com.example.verify.fragments.InitAnimationFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <include layout="@layout/navbar" />
 
 
 

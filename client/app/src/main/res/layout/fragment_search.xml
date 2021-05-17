@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SearchFragment">
+
+    <include layout="@layout/fragment_base" />
+
+    <ImageView
+        android:layout_width="289dp"
+        android:layout_height="58dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="66dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="34dp"
+        android:src="@drawable/ic_dummy_search_header_text" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="304dp"
+        android:src="@drawable/ic_location_pin_1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/full_address_hint"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="257dp"
+        android:layout_marginStart="299dp"
+        android:text="@string/city_field_title"
+        android:labelFor="@id/city_field"/>
+
+    <EditText
+        android:id="@+id/city_field"
+        android:layout_width="277dp"
+        android:layout_height="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="280dp"
+        android:layout_marginStart="44dp"
+        android:gravity="start"
+        android:background="@drawable/edit_text_background"
+        android:elevation="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="343dp"
+        android:layout_marginStart="292dp"
+        android:text="@string/street_field_title"
+        android:labelFor="@id/street_field"/>
+
+    <EditText
+        android:id="@+id/street_field"
+        android:layout_width="277dp"
+        android:layout_height="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="366dp"
+        android:layout_marginStart="44dp"
+        android:gravity="start"
+        android:background="@drawable/edit_text_background"
+        android:elevation="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="431dp"
+        android:layout_marginStart="298dp"
+        android:text="@string/building_field_title"
+        android:labelFor="@id/building_field"/>
+
+    <EditText
+        android:id="@+id/building_field"
+        android:layout_width="68.72dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="456dp"
+        android:layout_marginStart="247dp"
+        android:gravity="start"
+        android:background="@drawable/edit_text_background"
+        android:elevation="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="431dp"
+        android:layout_marginStart="189dp"
+        android:text="@string/floor_field_title"
+        android:labelFor="@id/floor_field"/>
+
+    <EditText
+        android:id="@+id/floor_field"
+        android:layout_width="68.72dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="456dp"
+        android:layout_marginStart="146dp"
+        android:gravity="start"
+        android:background="@drawable/edit_text_background"
+        android:elevation="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="431dp"
+        android:layout_marginStart="89dp"
+        android:text="@string/apartment_field_title"
+        android:labelFor="@id/apartment_field"/>
+
+    <EditText
+        android:id="@+id/apartment_field"
+        android:layout_width="68.72dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="456dp"
+        android:layout_marginStart="44dp"
+        android:gravity="start"
+        android:background="@drawable/edit_text_background"
+        android:elevation="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="99dp"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="44dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="541dp"
+        android:background="@drawable/button_background_1"
+        android:text="@string/search_button_text"
+        android:textColor="@color/white"
+        android:elevation="10dp" />
+
+
+
+
+</RelativeLayout>

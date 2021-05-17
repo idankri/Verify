@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.BaseFragment">
 
-    <include layout="@layout/navbar" />
+
 
 </RelativeLayout>
