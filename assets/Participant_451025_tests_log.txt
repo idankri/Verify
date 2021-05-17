@@ -1,0 +1,67 @@
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4d6870d3b765d994fd9d3121559a18fd9d70baccbfd684e2d6eace0a55d77e3b
+#1 transferring dockerfile: 38B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:25510bb56c1dfbf6877f15deda81edc27f8fc5795daf22d14f226f4c02b4e8e8
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:latest
+#3 sha256:8c6bdfb121a69744f11ffa1fedfc68ec20085c2dcce567aac97a3ff72e53502d
+#3 DONE 1.7s
+
+#4 [ 1/10] FROM docker.io/library/ubuntu@sha256:cf31af331f38d1d7158470e095b132acd126a7180a54f263d386da88eb681d93
+#4 sha256:3a62ec5d0b51a24c72d7dd4f23939f8bc72ccd3e086a54dcdf6155bd04d6fc2d
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:4ab39b941fcb2a325e61570ecb9731d5b11bdcc34ef75c6a3ae26804a82bfb5a
+#9 transferring context: 11.71kB done
+#9 DONE 0.1s
+
+#8 [ 5/10] RUN apt install -y libcurl3-dev
+#8 sha256:79d16d214dce07bc4f40de5bb544aaa99adff2a4f2a54ef82e1b72c52707969e
+#8 CACHED
+
+#5 [ 2/10] RUN apt update && apt install -y apt-transport-https
+#5 sha256:7e6ae451c9cadb3e176acac82b983f1e339bd6cf2b235df886fbcced5f5d6b04
+#5 CACHED
+
+#6 [ 3/10] RUN apt install -y gcc
+#6 sha256:8cfe5185ef0008344b19eac8ab00081890e00cd3315af7e60bd55644da583191
+#6 CACHED
+
+#7 [ 4/10] RUN apt install -y python3
+#7 sha256:ac139a085298d7fd626bec253806980e21a27dbb370f66bcae9e0c720ae37ad1
+#7 CACHED
+
+#10 [ 6/10] COPY ex2.c .
+#10 sha256:22e2ced609833bc69d1eedf7719815c6f338dfaecb89bfcd129d047869b6345c
+#10 CACHED
+
+#11 [ 7/10] COPY do_not_change/check_hw.py .
+#11 sha256:2e239a9eb1de6703ce0dca9e16a631821cf7bb6b4cddeb37bcafe2ccb8edd0ca
+#11 DONE 0.3s
+
+#12 [ 8/10] COPY do_not_change/run_killer.py .
+#12 sha256:b881fed31c122f9b461909a84417cf4fbe9ec6c09a43e4ff7ccd12a948a62455
+#12 DONE 0.2s
+
+#13 [ 9/10] COPY do_not_change/tests ./tests/
+#13 sha256:c2910165dbc76f2ad62d8b204492e82f36afb9f971f7aa4bf443266e11bf3009
+#13 DONE 0.2s
+
+#14 [10/10] COPY do_not_change/aux_files ./aux_files/
+#14 sha256:f411e28f3174871b84766c33e5c3c1ce477df1e712182501b913e7248a87364e
+#14 DONE 0.2s
+
+#15 exporting to image
+#15 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#15 exporting layers
+#15 exporting layers 0.4s done
+#15 writing image sha256:851677e47222eeffd07589b13d4cd88cdf8184704390f50f80b6cb0cdc328866 0.0s done
+#15 naming to docker.io/library/ex2_env
+#15 naming to docker.io/library/ex2_env 0.0s done
+#15 DONE 0.5s
