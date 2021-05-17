@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.verify.R;
+import com.example.verify.components.ApartmentProfile;
 import com.example.verify.fragments.AddApartmentFragment;
 import com.example.verify.fragments.ApartmentProfileFragment;
 import com.example.verify.fragments.BaseFragment;
@@ -30,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements
     private ActionBarWrapper mActionBar;
     //private ActionBar mActionBar;
     private Fragment mDummySearchFragment,
-            mSearchFragment,
-            mAddApartmentFragment,
-            mApartmentProfileFragment;
+            mAddApartmentFragment;
+    private SearchFragment mSearchFragment;
+    private ApartmentProfileFragment mApartmentProfileFragment;
     private LottieAnimationView mLottieAnimationView;
     private ImageView mAddApr;
     private ImageView mSearchApr;
@@ -139,10 +140,13 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onSearchButtonClick() {
+        ApartmentProfile profile = mSearchFragment.collectApartmentProfile();
+        mApartmentProfileFragment.setProfile(profile);
         getSupportFragmentManager().
                 beginTransaction()
                 .replace(R.id.container_fragment, mApartmentProfileFragment)
                 .commit();
+
         mMainActivityState.setSearchState(SearchState.Found);
     }
 

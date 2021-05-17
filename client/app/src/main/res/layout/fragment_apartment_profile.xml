@@ -6,7 +6,7 @@
     tools:context=".fragments.ApartmentProfileFragment">
 
     <TextView
-        android:id="@+id/some_id"
+        android:id="@+id/apartment_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

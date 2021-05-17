@@ -10,8 +10,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.verify.R;
+import com.example.verify.components.ApartmentProfile;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,6 +103,16 @@ public class SearchFragment extends BaseFragment {
     public void onDetach() {
         super.onDetach();
         mSearchFragmentListener = null;
+    }
+
+    public ApartmentProfile collectApartmentProfile(){
+        return new ApartmentProfile(
+                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.city_field)).getText().toString(),
+                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.street_field)).getText().toString(),
+                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.building_field)).getText().toString(),
+                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.floor_field)).getText().toString(),
+                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.apartment_field)).getText().toString()
+        );
     }
 
     public interface SearchFragmentListener{

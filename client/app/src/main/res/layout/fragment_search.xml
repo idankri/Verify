@@ -116,7 +116,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
-        android:inputType="text" />
+        android:inputType="number" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -144,7 +144,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
-        android:inputType="text" />
+        android:inputType="number" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -172,7 +172,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
-        android:inputType="text" />
+        android:inputType="number" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/main_search_button"
