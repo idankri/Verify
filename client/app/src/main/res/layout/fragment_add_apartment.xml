@@ -38,6 +38,7 @@
         android:textAppearance="@style/add_apartment_detail"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_apr_review_button"
         android:layout_width="237dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"

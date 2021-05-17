@@ -175,6 +175,7 @@
         android:inputType="text" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/main_search_button"
         android:layout_width="99dp"
         android:layout_height="38dp"
         android:layout_alignParentStart="true"

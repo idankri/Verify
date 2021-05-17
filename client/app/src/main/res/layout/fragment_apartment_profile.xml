@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ApartmentProfileFragment">
+
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="26dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="84dp"
+        android:text="@string/apartment_profile_address_placeholder"
+        android:textAppearance="@style/apartment_profile_address"
+        android:gravity="end|top"
+        />
+
+    <RelativeLayout
+        android:id="@+id/apartment_icon"
+        android:layout_width="10dp"
+        android:layout_height="14dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="26dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="114dp"
+        android:background="@drawable/ic_apartment_icon"
+        />
+
+    <TextView
+        android:id="@+id/apartment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/apartment_icon"
+        android:layout_alignParentEnd="false"
+        android:layout_marginEnd="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="116dp"
+        android:text="@string/apartment_profile_apartment"
+        android:textAppearance="@style/apartment_profile_apartment"
+        android:gravity="end|top" />
+
+    <TextView
+        android:id="@+id/apartment_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/apartment_text"
+        android:layout_alignParentEnd="false"
+        android:layout_marginEnd="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="116dp"
+        android:text="@string/apartment_profile_apartment_placeholder"
+        android:textAppearance="@style/apartment_profile_apartment_number"
+        android:gravity="end|top" />
+
+    <RelativeLayout
+        android:id="@+id/floor_icon"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_toStartOf="@id/apartment_number_text"
+        android:layout_alignParentEnd="false"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/ic_floor_icon" />
+
+    <TextView
+        android:id="@+id/floor_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/floor_icon"
+        android:layout_alignParentEnd="false"
+        android:layout_marginEnd="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="116dp"
+        android:text="@string/apartment_profile_floor"
+        android:textAppearance="@style/apartment_profile_apartment"
+        android:gravity="end|top" />
+
+    <TextView
+        android:id="@+id/floor_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/floor_text"
+        android:layout_alignParentEnd="false"
+        android:layout_marginEnd="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="116dp"
+        android:text="@string/apartment_profile_floor_placeholder"
+        android:textAppearance="@style/apartment_profile_apartment_number"
+        android:gravity="end|top" />
+
+
+
+
+</RelativeLayout>

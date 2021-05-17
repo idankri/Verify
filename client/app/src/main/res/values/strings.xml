@@ -17,5 +17,13 @@
     <string name="floor_field_title">קומה</string>
     <string name="apartment_field_title">דירה</string>
     <string name="search_button_text">חיפוש</string>
-    <string name="add_opinion_text">הופסת חוות דעת</string>
+    <string name="add_opinion_text">הוספת חוות דעת</string>
+
+    <string name="apartment_profile_address_placeholder">רחוב לורם איפסום 27, באר שבע</string>
+    <string name="apartment_profile_apartment">דירה</string>
+    <string name="apartment_profile_apartment_placeholder">14</string>
+    <string name="apartment_profile_floor">קומה</string>
+    <string name="apartment_profile_floor_placeholder">7</string>
+
+    <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>

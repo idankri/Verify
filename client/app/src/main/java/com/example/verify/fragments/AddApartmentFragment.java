@@ -1,7 +1,10 @@
 package com.example.verify.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -25,6 +28,8 @@ public class AddApartmentFragment extends BaseFragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private AddApartmentFragmentListener mAddApartmentFragmentListener;
 
     public AddApartmentFragment() {
         // Required empty public constructor
@@ -62,5 +67,40 @@ public class AddApartmentFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_apartment, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        View button = view.findViewById(R.id.add_apr_review_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mAddApartmentFragmentListener != null){
+                    mAddApartmentFragmentListener.onAddApartmentButtonClick();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof DummySearchFragment.DummySearchFragmentListener){
+            mAddApartmentFragmentListener = (AddApartmentFragmentListener) context;
+        }
+        else{
+            throw new RuntimeException(context.toString() + " must imlement DummySearchFragmentListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mAddApartmentFragmentListener = null;
+    }
+
+    public interface AddApartmentFragmentListener{
+        void onAddApartmentButtonClick();
     }
 }
