@@ -40,7 +40,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="257dp"
-        android:layout_marginStart="299dp"
+        android:layout_marginStart="319dp"
         android:text="@string/city_field_title"
         android:labelFor="@id/city_field"/>
 
@@ -51,7 +51,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="280dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="64dp"
         android:gravity="start"
         android:background="@drawable/edit_text_background"
         android:elevation="5dp"
@@ -68,7 +68,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="343dp"
-        android:layout_marginStart="292dp"
+        android:layout_marginStart="312dp"
         android:text="@string/street_field_title"
         android:labelFor="@id/street_field"/>
 
@@ -79,7 +79,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="366dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="64dp"
         android:gravity="start"
         android:background="@drawable/edit_text_background"
         android:elevation="5dp"
@@ -96,7 +96,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="431dp"
-        android:layout_marginStart="298dp"
+        android:layout_marginStart="318dp"
         android:text="@string/building_field_title"
         android:labelFor="@id/building_field"/>
 
@@ -107,7 +107,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="456dp"
-        android:layout_marginStart="247dp"
+        android:layout_marginStart="267dp"
         android:gravity="start"
         android:background="@drawable/edit_text_background"
         android:elevation="5dp"
@@ -124,7 +124,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="431dp"
-        android:layout_marginStart="189dp"
+        android:layout_marginStart="209dp"
         android:text="@string/floor_field_title"
         android:labelFor="@id/floor_field"/>
 
@@ -135,7 +135,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="456dp"
-        android:layout_marginStart="146dp"
+        android:layout_marginStart="166dp"
         android:gravity="start"
         android:background="@drawable/edit_text_background"
         android:elevation="5dp"
@@ -152,7 +152,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="431dp"
-        android:layout_marginStart="89dp"
+        android:layout_marginStart="109dp"
         android:text="@string/apartment_field_title"
         android:labelFor="@id/apartment_field"/>
 
@@ -163,7 +163,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="456dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="64dp"
         android:gravity="start"
         android:background="@drawable/edit_text_background"
         android:elevation="5dp"
@@ -179,7 +179,7 @@
         android:layout_width="99dp"
         android:layout_height="38dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="64dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="541dp"
         android:background="@drawable/button_background_1"
