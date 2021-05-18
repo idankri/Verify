@@ -6,6 +6,7 @@
     <string name="dummy_search_header">עדיין מתלבטים? בדקו מה דיירים
 קודמים חושבים על הדירה...</string>
     <string name="dummy_search_hint">*יש להזין מהי הכתובת המלאה</string>
+    <string name="dummy_search_button_text">מהי כתובת הדירה?</string>
     <string name="full_address_hint">יש להזין מהי הכתובת המלאה</string>
     <string name="add_apartment_title">יצא לך לשכור דירה?</string>
     <string name="add_apartment_detail">מעולה! סקרנים לשמוע איך היה לגור בה,

@@ -1,6 +1,5 @@
 package com.example.verify.activities;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -21,6 +20,10 @@ import com.example.verify.fragments.DummySearchFragment;
 import com.example.verify.fragments.SearchFragment;
 import com.example.verify.utils.ActionBarWrapper;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity implements
         DummySearchFragment.DummySearchFragmentListener,
         BaseFragment.BaseFragmentListener,
@@ -30,15 +33,16 @@ public class MainActivity extends AppCompatActivity implements
 
     private ActionBarWrapper mActionBar;
     //private ActionBar mActionBar;
+    private ImageView mAddApr;
+    private ImageView mSearchApr;
     private Fragment mDummySearchFragment,
             mAddApartmentFragment;
     private SearchFragment mSearchFragment;
     private ApartmentProfileFragment mApartmentProfileFragment;
     private LottieAnimationView mLottieAnimationView;
-    private ImageView mAddApr;
-    private ImageView mSearchApr;
 
-    private MainActivityState mMainActivityState;
+
+    private MainActivityStateManager mMainActivityStateManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +58,12 @@ public class MainActivity extends AppCompatActivity implements
         mApartmentProfileFragment = new ApartmentProfileFragment();
 
         setUpNavBar();
-        mMainActivityState = new MainActivityState(TabState.Search,
-                SearchState.Animation,
-                mActionBar,
-                findViewById(R.id.navigation_bar));
 
+        mMainActivityStateManager = new MainActivityStateManager(FragmentState.Animation,
+                mActionBar,
+                findViewById(R.id.navigation_bar),
+                mAddApr,
+                mSearchApr);
         setUpAnimation();
     }
 
@@ -76,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements
                         beginTransaction()
                         .replace(R.id.container_fragment, mDummySearchFragment)
                         .commit();
-                mMainActivityState.setSearchState(SearchState.Searching);
+                mMainActivityStateManager.pushFragmentState(FragmentState.Searching);
             }
 
             @Override
@@ -98,37 +103,21 @@ public class MainActivity extends AppCompatActivity implements
         mAddApr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mMainActivityState.getTabState() == TabState.Search) {
-                    mAddApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_apr_button_focused));
-                    mSearchApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_search_apr_button));
-                    mMainActivityState.setTabState(TabState.Add);
+                if (mMainActivityStateManager.getFragmentState() == FragmentState.Searching) {
+                    mMainActivityStateManager.pushFragmentState(FragmentState.AddApartment);
                     getSupportFragmentManager().
                             beginTransaction()
                             .replace(R.id.container_fragment, mAddApartmentFragment)
                             .commit();
-
                 }
             }
         });
-    }
 
-    @Override
-    public void onDummyButtonClick() {
-        getSupportFragmentManager().
-                beginTransaction()
-                .replace(R.id.container_fragment, mSearchFragment)
-                .commit();
-    }
-
-    @Override
-    public void onBaseFragmentCreated() {
         mSearchApr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mMainActivityState.getTabState() == TabState.Add) {
-                    mAddApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_apr_button));
-                    mSearchApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_search_apr_button_focused));
-                    mMainActivityState.setTabState(TabState.Search);
+                if (mMainActivityStateManager.getFragmentState() == FragmentState.AddApartment) {
+                    mMainActivityStateManager.pushFragmentState(FragmentState.Searching);
                     getSupportFragmentManager().
                             beginTransaction()
                             .replace(R.id.container_fragment, mSearchFragment)
@@ -136,6 +125,21 @@ public class MainActivity extends AppCompatActivity implements
                 }
             }
         });
+    }
+
+    @Override
+    public void onDummyButtonClick() {
+        mMainActivityStateManager.pushFragmentState(FragmentState.Searching);
+        getSupportFragmentManager().
+                beginTransaction()
+                .replace(R.id.container_fragment, mSearchFragment)
+                .commit();
+        mDummySearchFragment = null; // delete pointer for garbage collection
+    }
+
+    @Override
+    public void onBaseFragmentCreated() {
+
     }
 
     @Override
@@ -147,15 +151,15 @@ public class MainActivity extends AppCompatActivity implements
                 .replace(R.id.container_fragment, mApartmentProfileFragment)
                 .commit();
 
-        mMainActivityState.setSearchState(SearchState.Found);
+        mMainActivityStateManager.pushFragmentState(FragmentState.Found);
     }
 
     @Override
     public void onBackArrowLogoClick() {
-        mMainActivityState.setSearchState(SearchState.Searching);
+        FragmentState foundState = mMainActivityStateManager.popFragmentState();
         getSupportFragmentManager().
                 beginTransaction()
-                .replace(R.id.container_fragment, mSearchFragment)
+                .replace(R.id.container_fragment, getFragmentFromFragmentState(foundState))
                 .commit();
     }
 
@@ -170,70 +174,101 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(browserIntent);
     }
 
-    private class MainActivityState{
-        private TabState mTabState;
-        private SearchState mSearchState;
-        private ActionBarWrapper mActionBarWrapper;
-        private View mNavbar;
+    private class MainActivityStateManager {
+        private ImageView mAddApr;
+        private ImageView mSearchApr;
+        private FragmentState mFragmentState;
+        private final ActionBarWrapper mActionBarWrapper;
+        private final View mNavbar;
+        private final Stack<FragmentState> mFragmentStateLifo;
+        private final List<FragmentState> fragmentStatesNotInLifo = Arrays.asList(FragmentState.Animation,
+                                                                                    FragmentState.DummySearch);
 
-        public MainActivityState(TabState tabState,
-                                 SearchState searchState,
-                                 ActionBarWrapper actionBarWrapper,
-                                 View navbar){
+        public MainActivityStateManager(FragmentState fragmentState,
+                                        ActionBarWrapper actionBarWrapper,
+                                        View navbar,
+                                        ImageView addApr,
+                                        ImageView searchApr){
             mActionBarWrapper = actionBarWrapper;
             mNavbar = navbar;
-            setTabState(tabState);
-            setSearchState(searchState);
-
+            mAddApr = addApr;
+            mSearchApr = searchApr;
+            mFragmentStateLifo = new Stack<>();
+            setFragmentState(fragmentState);
 
         }
 
-        public TabState getTabState(){
-            return mTabState;
+        public FragmentState getFragmentState(){
+            return mFragmentState;
         }
 
-        public void setTabState(TabState tabState){
-            mTabState = tabState;
-            if(tabState == TabState.Search){
-                mActionBar.setActionBarUtilsVisibility(false);
-            }
-            else{
-                mActionBar.setActionBarUtilsVisibility(true);
-            }
-        }
-
-        public SearchState getSearchState(){
-            return mSearchState;
-        }
-
-        public void setSearchState(SearchState searchState){
-            mSearchState = searchState;
-            if(searchState == SearchState.Found){
+        private void setFragmentState(FragmentState fragmentState){
+            mFragmentState = fragmentState;
+            if(fragmentState == FragmentState.Found){
                 mActionBarWrapper.setActionBarVisibility(true);
                 mActionBarWrapper.setActionBarUtilsVisibility(true);
                 mNavbar.setVisibility(View.INVISIBLE);
             }
-            else if(searchState == SearchState.Searching){
+            else if(fragmentState == FragmentState.AddApartment){
+                mAddApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_apr_button_focused));
+                mSearchApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_search_apr_button));
                 mActionBarWrapper.setActionBarVisibility(true);
-                mActionBarWrapper.setActionBarUtilsVisibility(false);
                 mNavbar.setVisibility(View.VISIBLE);
             }
-            else if(searchState == SearchState.Animation){
+            else if(fragmentState == FragmentState.Searching){
+                mAddApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_apr_button));
+                mSearchApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_search_apr_button_focused));
+                mActionBarWrapper.setActionBarVisibility(true);
+                mNavbar.setVisibility(View.VISIBLE);
+            }
+            else if(fragmentState == FragmentState.Animation){
                 mActionBarWrapper.setActionBarVisibility(false);
                 mNavbar.setVisibility(View.INVISIBLE);
             }
+        }
+
+        public void pushFragmentState(FragmentState fragmentState){
+            if(!fragmentStatesNotInLifo.contains(mFragmentState)){
+                mFragmentStateLifo.push(mFragmentState);
+                mActionBar.setActionBarUtilsVisibility(true);
+            }
+            setFragmentState(fragmentState);
+        }
+
+        public FragmentState popFragmentState(){
+            if(mFragmentStateLifo.isEmpty()){
+                throw new UnsupportedOperationException();
+            }
+            FragmentState ret = mFragmentStateLifo.pop();
+            if(mFragmentStateLifo.isEmpty()){
+                mActionBar.setActionBarUtilsVisibility(false);
+            }
+            setFragmentState(ret);
+            return ret;
+        }
+    }
+
+    private Fragment getFragmentFromFragmentState(FragmentState fragmentState){
+        switch(fragmentState){
+            case DummySearch:
+                return mDummySearchFragment;
+            case Searching:
+                return mSearchFragment;
+            case AddApartment:
+                return mAddApartmentFragment;
+            case Found:
+                return mApartmentProfileFragment;
+            default:
+                throw new UnsupportedOperationException();
 
         }
     }
 
-    private enum TabState{
-        Search,
-        Add
-    }
-
-    private enum SearchState{
+    private enum FragmentState {
         Animation,
+        DummySearch,
         Searching,
+        AddApartment,
         Found
     }
 }
