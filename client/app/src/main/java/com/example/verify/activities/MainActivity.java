@@ -17,6 +17,7 @@ import com.example.verify.fragments.AddApartmentFragment;
 import com.example.verify.fragments.ApartmentProfileFragment;
 import com.example.verify.fragments.BaseFragment;
 import com.example.verify.fragments.DummySearchFragment;
+import com.example.verify.fragments.IntroductionFragment;
 import com.example.verify.fragments.SearchFragment;
 import com.example.verify.utils.ActionBarWrapper;
 
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements
         BaseFragment.BaseFragmentListener,
         SearchFragment.SearchFragmentListener,
         ActionBarWrapper.ActionBarWrapperListener,
-        AddApartmentFragment.AddApartmentFragmentListener {
+        AddApartmentFragment.AddApartmentFragmentListener,
+        IntroductionFragment.IntroductionFragmentListener {
 
     private ActionBarWrapper mActionBar;
     //private ActionBar mActionBar;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements
             mAddApartmentFragment;
     private SearchFragment mSearchFragment;
     private ApartmentProfileFragment mApartmentProfileFragment;
+    private IntroductionFragment mIntroductionFragment;
     private LottieAnimationView mLottieAnimationView;
 
 
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements
         mSearchFragment = new SearchFragment();
         mAddApartmentFragment = new AddApartmentFragment();
         mApartmentProfileFragment = new ApartmentProfileFragment();
+        mIntroductionFragment = new IntroductionFragment();
 
         setUpNavBar();
 
@@ -79,9 +83,9 @@ public class MainActivity extends AppCompatActivity implements
             public void onAnimationEnd(Animator animation) {
                 getSupportFragmentManager().
                         beginTransaction()
-                        .replace(R.id.container_fragment, mDummySearchFragment)
+                        .replace(R.id.container_fragment, mIntroductionFragment)
                         .commit();
-                mMainActivityStateManager.pushFragmentState(FragmentState.Searching);
+                mMainActivityStateManager.pushFragmentState(FragmentState.Introduction);
             }
 
             @Override
@@ -103,7 +107,8 @@ public class MainActivity extends AppCompatActivity implements
         mAddApr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mMainActivityStateManager.getFragmentState() == FragmentState.Searching) {
+                if (mMainActivityStateManager.getFragmentState() == FragmentState.Searching ||
+                        mMainActivityStateManager.getFragmentState() == FragmentState.DummySearch) {
                     mMainActivityStateManager.pushFragmentState(FragmentState.AddApartment);
                     getSupportFragmentManager().
                             beginTransaction()
@@ -174,6 +179,16 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(browserIntent);
     }
 
+    @Override
+    public void onLetsVerifyButtonClick() {
+        mMainActivityStateManager.pushFragmentState(FragmentState.DummySearch);
+        getSupportFragmentManager().
+                beginTransaction()
+                .replace(R.id.container_fragment, mDummySearchFragment)
+                .commit();
+        mIntroductionFragment = null; // delete pointer for garbage collection
+    }
+
     private class MainActivityStateManager {
         private ImageView mAddApr;
         private ImageView mSearchApr;
@@ -182,7 +197,8 @@ public class MainActivity extends AppCompatActivity implements
         private final View mNavbar;
         private final Stack<FragmentState> mFragmentStateLifo;
         private final List<FragmentState> fragmentStatesNotInLifo = Arrays.asList(FragmentState.Animation,
-                                                                                    FragmentState.DummySearch);
+                                                                                    FragmentState.DummySearch,
+                                                                                    FragmentState.Introduction);
 
         public MainActivityStateManager(FragmentState fragmentState,
                                         ActionBarWrapper actionBarWrapper,
@@ -206,7 +222,6 @@ public class MainActivity extends AppCompatActivity implements
             mFragmentState = fragmentState;
             if(fragmentState == FragmentState.Found){
                 mActionBarWrapper.setActionBarVisibility(true);
-                mActionBarWrapper.setActionBarUtilsVisibility(true);
                 mNavbar.setVisibility(View.INVISIBLE);
             }
             else if(fragmentState == FragmentState.AddApartment){
@@ -215,7 +230,7 @@ public class MainActivity extends AppCompatActivity implements
                 mActionBarWrapper.setActionBarVisibility(true);
                 mNavbar.setVisibility(View.VISIBLE);
             }
-            else if(fragmentState == FragmentState.Searching){
+            else if(fragmentState == FragmentState.Searching || fragmentState == FragmentState.DummySearch){
                 mAddApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_apr_button));
                 mSearchApr.setImageDrawable(getResources().getDrawable(R.drawable.ic_search_apr_button_focused));
                 mActionBarWrapper.setActionBarVisibility(true);
@@ -225,12 +240,24 @@ public class MainActivity extends AppCompatActivity implements
                 mActionBarWrapper.setActionBarVisibility(false);
                 mNavbar.setVisibility(View.INVISIBLE);
             }
+            else if(fragmentState == FragmentState.Introduction){
+                mActionBarWrapper.setActionBarVisibility(true);
+                mNavbar.setVisibility(View.INVISIBLE);
+            }
         }
 
         public void pushFragmentState(FragmentState fragmentState){
+            if((mFragmentState==FragmentState.DummySearch &&
+                    fragmentState==FragmentState.AddApartment)){
+                mFragmentStateLifo.push(FragmentState.Searching);
+            }
             if(!fragmentStatesNotInLifo.contains(mFragmentState)){
                 mFragmentStateLifo.push(mFragmentState);
-                mActionBar.setActionBarUtilsVisibility(true);
+            }
+            if(mFragmentStateLifo.isEmpty()){
+                mActionBarWrapper.setActionBarUtilsVisibility(false);
+            } else{
+                mActionBarWrapper.setActionBarUtilsVisibility(true);
             }
             setFragmentState(fragmentState);
         }
@@ -250,6 +277,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private Fragment getFragmentFromFragmentState(FragmentState fragmentState){
         switch(fragmentState){
+            case Introduction:
+                return mIntroductionFragment;
             case DummySearch:
                 return mDummySearchFragment;
             case Searching:
@@ -266,6 +295,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private enum FragmentState {
         Animation,
+        Introduction,
         DummySearch,
         Searching,
         AddApartment,
