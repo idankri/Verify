@@ -18,6 +18,7 @@
         android:layout_marginTop="388dp"
         android:layout_centerHorizontal="true"
         android:text="@string/introduction_layout_2_title"
+        android:textFontWeight="700"
         android:textAppearance="@style/introduction_layout_title"/>
 
     <TextView
@@ -26,6 +27,7 @@
         android:layout_marginTop="444dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
+        android:textFontWeight="300"
         android:text="@string/introduction_layout_2_content"
         android:textAppearance="@style/introduction_layout_content"/>
 </RelativeLayout>
