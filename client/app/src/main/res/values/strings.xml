@@ -26,5 +26,19 @@
     <string name="apartment_profile_floor">קומה</string>
     <string name="apartment_profile_floor_placeholder">7</string>
 
+    <string name="introduction_layout_1_title">מצאת את הדירה שאהבת?</string>
+    <string name="introduction_layout_1_content">הזינו את כתובתה המלאה כולל עיר מגורים,
+    שם הרחוב, מס\' בניין, קומה ודירה</string>
+    <string name="introduction_layout_2_title">הגיע הזמן להכיר אותה לעומק</string>
+    <string name="introduction_layout_2_content">קבלו גישה להיסטוריית הדירה
+    המבוססת על נסיונם של דיירים
+    קודמים</string>
+    <string name="introduction_layout_3_title">חושבים שהיא האחת?</string>
+    <string name="introduction_layout_3_content">בזכות הקהילה שלנו, תוכלו לוודא האם
+    זו הדירה הנכונה ביותר, שתוכל להבטיח
+    בטחון, וודאות ושקט נפשי לטווח ארוך</string>
+    <string name="introduction_layout_button_text">Let\'s Verify</string>
+    <string name="introduction_layout_skip_text">דלג\\י</string>
+
     <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>
