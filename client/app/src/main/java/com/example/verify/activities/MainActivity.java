@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements
     private SearchFragment mSearchFragment;
     private ApartmentProfileFragment mApartmentProfileFragment;
     private IntroductionFragment mIntroductionFragment;
-    private LottieAnimationView mLottieAnimationView;
+    //private LottieAnimationView mLottieAnimationView;
 
 
     private MainActivityStateManager mMainActivityStateManager;
@@ -190,8 +190,8 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private class MainActivityStateManager {
-        private ImageView mAddApr;
-        private ImageView mSearchApr;
+        private final ImageView mAddApr;
+        private final ImageView mSearchApr;
         private FragmentState mFragmentState;
         private final ActionBarWrapper mActionBarWrapper;
         private final View mNavbar;
