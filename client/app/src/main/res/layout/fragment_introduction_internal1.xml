@@ -8,6 +8,8 @@
     <ImageView
         android:layout_width="258dp"
         android:layout_height="301dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="50dp"
         android:layout_marginStart="33dp"
         android:src="@drawable/introduction_layout_drawing_1_picture" />
