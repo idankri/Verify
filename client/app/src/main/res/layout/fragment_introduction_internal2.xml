@@ -9,7 +9,7 @@
         android:layout_width="264dp"
         android:layout_height="276dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="70dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/introduction_layout_drawing_2_picture" />
 
     <TextView

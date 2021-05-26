@@ -9,7 +9,7 @@
         android:layout_width="289dp"
         android:layout_height="276dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="51dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/ic_introduction_layout_drawing_3" />
 
     <TextView

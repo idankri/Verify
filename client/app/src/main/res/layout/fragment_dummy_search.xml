@@ -10,8 +10,7 @@
     <ImageView
         android:layout_width="289dp"
         android:layout_height="58dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="66dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="34dp"
         android:src="@drawable/ic_dummy_search_header_text" />
@@ -21,10 +20,9 @@
         android:id="@+id/dummy_button"
         android:layout_width="274dp"
         android:layout_height="45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="66dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="186dp"
+        android:layout_marginTop="126dp"
         android:padding="2dp"
         android:background="@drawable/edit_text_background_round"
         android:elevation="10dp">
@@ -58,10 +56,9 @@
     <ImageView
         android:layout_width="343dp"
         android:layout_height="338dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="40dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="277dp"
+        android:layout_marginTop="217dp"
         android:src="@drawable/ic_dummy_search_drawing" />
 
 

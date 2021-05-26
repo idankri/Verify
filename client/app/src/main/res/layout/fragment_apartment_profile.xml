@@ -13,7 +13,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="26dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="37dp"
         android:text="@string/apartment_profile_address_placeholder"
         android:textAppearance="@style/apartment_profile_address"
         android:gravity="end|top"
@@ -26,7 +26,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="26dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="114dp"
+        android:layout_marginTop="69dp"
         android:background="@drawable/ic_apartment_icon"
         />
 
@@ -38,7 +38,7 @@
         android:layout_alignParentEnd="false"
         android:layout_marginEnd="3.7dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="69dp"
         android:text="@string/apartment_profile_apartment"
         android:textAppearance="@style/apartment_profile_apartment"
         android:gravity="end|top" />
@@ -51,7 +51,7 @@
         android:layout_alignParentEnd="false"
         android:layout_marginEnd="2dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="69dp"
         android:text="@string/apartment_profile_apartment_placeholder"
         android:textAppearance="@style/apartment_profile_apartment_number"
         android:gravity="end|top" />
@@ -64,7 +64,7 @@
         android:layout_alignParentEnd="false"
         android:layout_marginEnd="8dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="71dp"
         android:background="@drawable/ic_floor_icon" />
 
     <TextView
@@ -75,7 +75,7 @@
         android:layout_alignParentEnd="false"
         android:layout_marginEnd="4dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="69dp"
         android:text="@string/apartment_profile_floor"
         android:textAppearance="@style/apartment_profile_apartment"
         android:gravity="end|top" />
@@ -88,7 +88,7 @@
         android:layout_alignParentEnd="false"
         android:layout_marginEnd="2dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="69dp"
         android:text="@string/apartment_profile_floor_placeholder"
         android:textAppearance="@style/apartment_profile_apartment_number"
         android:gravity="end|top" />
@@ -96,10 +96,9 @@
     <RelativeLayout
         android:layout_width="360dp"
         android:layout_height="224dp"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="109dp"
         android:background="@drawable/edit_text_background"
         android:elevation="1dp">
 
@@ -135,10 +134,9 @@
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
             android:layout_marginTop="65dp"
-            android:layout_marginEnd="76dp"
             android:isIndicator="true"
             android:rating="4"
             android:rotation="180"
@@ -149,9 +147,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="72dp"
-            android:layout_marginEnd="30dp"
+            android:layout_toEndOf="@+id/apartment_general_rating"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="70dp"
             android:gravity="end|top"
             android:letterSpacing="0.03"
             android:text="@string/apartment_profile_general_rating_placeholder"
