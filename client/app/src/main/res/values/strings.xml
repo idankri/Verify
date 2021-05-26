@@ -33,7 +33,7 @@
     <string name="apartment_profile_maintenance_rating_placeholder">4.0</string>
     <string name="apartment_profile_around">מסביב לדירה</string>
     <string name="apartment_profile_around_rating_placeholder">3.5</string>
-    <string name="apartment_profile_general_rating_placeholder">4.0</string>
+    <string name="apartment_profile_general_rating_placeholder">4</string>
 
     <string name="introduction_layout_1_title">מצאת את הדירה שאהבת?</string>
     <string name="introduction_layout_1_content">הזינו את כתובתה המלאה כולל עיר מגורים,
