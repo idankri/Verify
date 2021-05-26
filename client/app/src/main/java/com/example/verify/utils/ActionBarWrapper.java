@@ -1,9 +1,11 @@
 package com.example.verify.utils;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.verify.R;
 
@@ -25,7 +27,14 @@ public class ActionBarWrapper {
         mActionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         mActionBar.setDisplayShowCustomEnabled(true);
         mActionBar.setCustomView(R.layout.toolbar);
-        mActionBar.setElevation(0);
+        Toolbar toolbar=(Toolbar)mActionBar.getCustomView().getParent();
+        toolbar.setContentInsetsAbsolute(0, 0);
+        toolbar.setPadding(0, 0, 0, 0);
+        toolbar.getContentInsetStart();
+        toolbar.getContentInsetEnd();
+        toolbar.setBackgroundColor(Color.WHITE);
+        //toolbar.setElevation(10);
+        mActionBar.setElevation(1);
         mActionBar.hide();
         //View view = getSupportActionBar().getCustomView();
         setActionBarUtilsVisibility(false);
