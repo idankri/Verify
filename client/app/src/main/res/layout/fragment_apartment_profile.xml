@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ApartmentProfileFragment">
 
     <TextView
@@ -92,7 +93,187 @@
         android:textAppearance="@style/apartment_profile_apartment_number"
         android:gravity="end|top" />
 
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="224dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="156dp"
+        android:background="@drawable/edit_text_background"
+        android:elevation="1dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="26dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_general_review_title"
+            android:textAppearance="@style/apartment_profile_general_review_title"
+            android:textFontWeight="400" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="26dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_reviews_placeholder"
+            android:textAppearance="@style/apartment_profile_general_review_title"
+            android:textColor="@color/custom_grey_1"
+            android:textFontWeight="300" />
+
+        <RatingBar
+            android:id="@+id/apartment_general_rating"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="76dp"
+            android:isIndicator="true"
+            android:rating="4"
+            android:rotation="180"
+            android:scaleY="-1"
+            android:theme="@style/RatingBar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_general_rating_placeholder"
+            android:textAppearance="@style/apartment_profile_address" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_apartment_holder"
+            android:textAppearance="@style/apartment_profile_general_review_title" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:progress="80"
+            android:theme="@style/CustomProgressBar"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="100dp"
+            android:rotation="180"
+            android:scaleY="-2"
+            app:indicatorColor="@color/custom_green_1"
+            app:trackCornerRadius="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="305dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_apartment_holder_rating_placeholder"
+            android:textAppearance="@style/apartment_profile_general_review_title" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="145dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_maintenance"
+            android:textAppearance="@style/apartment_profile_general_review_title" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:progress="80"
+            android:theme="@style/CustomProgressBar"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="155dp"
+            android:layout_marginEnd="100dp"
+            android:rotation="180"
+            android:scaleY="-2"
+            app:indicatorColor="@color/custom_green_1"
+            app:trackCornerRadius="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="145dp"
+            android:layout_marginEnd="305dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_maintenance_rating_placeholder"
+            android:textAppearance="@style/apartment_profile_general_review_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_around"
+            android:textAppearance="@style/apartment_profile_general_review_title" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:progress="70"
+            android:theme="@style/CustomProgressBar"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="190dp"
+            android:layout_marginEnd="100dp"
+            android:rotation="180"
+            android:scaleY="-2"
+            app:trackCornerRadius="10dp"
+            app:indicatorColor="@color/custom_green_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="305dp"
+            android:gravity="end|top"
+            android:letterSpacing="0.03"
+            android:text="@string/apartment_profile_around_rating_placeholder"
+            android:textAppearance="@style/apartment_profile_general_review_title" />
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

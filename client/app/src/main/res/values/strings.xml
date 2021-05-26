@@ -25,6 +25,15 @@
     <string name="apartment_profile_apartment_placeholder">14</string>
     <string name="apartment_profile_floor">קומה</string>
     <string name="apartment_profile_floor_placeholder">7</string>
+    <string name="apartment_profile_general_review_title">דירוג כללי של הדירה</string>
+    <string name="apartment_profile_reviews_placeholder">(3 ביקורות)</string>
+    <string name="apartment_profile_apartment_holder">בעל הדירה</string>
+    <string name="apartment_profile_apartment_holder_rating_placeholder">4.0</string>
+    <string name="apartment_profile_maintenance">תחזוקה</string>
+    <string name="apartment_profile_maintenance_rating_placeholder">4.0</string>
+    <string name="apartment_profile_around">מסביב לדירה</string>
+    <string name="apartment_profile_around_rating_placeholder">3.5</string>
+    <string name="apartment_profile_general_rating_placeholder">4.0</string>
 
     <string name="introduction_layout_1_title">מצאת את הדירה שאהבת?</string>
     <string name="introduction_layout_1_content">הזינו את כתובתה המלאה כולל עיר מגורים,
