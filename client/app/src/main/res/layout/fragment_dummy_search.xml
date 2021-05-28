@@ -49,6 +49,7 @@
             android:text="@string/dummy_search_button_text"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
+            android:textColor="@color/custom_grey_1"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>
