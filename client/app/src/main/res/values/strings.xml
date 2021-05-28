@@ -49,5 +49,17 @@
     <string name="introduction_layout_button_text">Let\'s Verify</string>
     <string name="introduction_layout_skip_text">דלג\\י</string>
 
+    <string name="apartment_review_tab_title_1">מבט כולל</string>
+    <string name="apartment_review_tab_title_2">יתרונות וחסרונות</string>
+    <string name="apartment_review_tab_title_3">חוות דעת</string>
+    <string name="apartment_review_tab_title_4">שורה תחתונה</string>
+    <string name="apartment_review_tenant_type_placeholder">דייר/ת יחיד/ה</string>
+    <string name="apartment_review_tenant_stay_placeholder">(15 חודשים)</string>
+    <string name="apartment_review_entry_title">כניסה:</string>
+    <string name="apartment_review_leave_title">יציאה:</string>
+    <string name="apartment_review_entry_date_placeholder">ינואר 2020</string>
+    <string name="apartment_review_leave_date_placeholder">אפריל 2021</string>
+    <string name="apartment_review_review_title">דירוג הדירה עפ"י הדייר/ת</string>
+
     <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>

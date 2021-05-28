@@ -9,14 +9,14 @@
         android:layout_width="258dp"
         android:layout_height="301dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/introduction_layout_drawing_1_picture" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="348dp"
         android:layout_centerHorizontal="true"
         android:text="@string/introduction_layout_1_title"
         android:textFontWeight="700"
@@ -25,7 +25,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="434dp"
+        android:layout_marginTop="394dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:textFontWeight="300"

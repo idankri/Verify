@@ -11,10 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="10dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:background="@android:color/transparent"
+        android:textColor="@color/custom_grey_1"
         android:text="@string/introduction_layout_skip_text" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -22,7 +23,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layoutDirection="rtl"
-        android:layout_height="510dp" />
+        android:layout_height="470dp" />
 
     <LinearLayout
         android:id="@+id/introduction_dots_container"
@@ -39,7 +40,7 @@
         android:layout_width="237dp"
         android:layout_height="50dp"
         android:layout_below="@+id/introduction_view_pager"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:elevation="20dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal|center_vertical"

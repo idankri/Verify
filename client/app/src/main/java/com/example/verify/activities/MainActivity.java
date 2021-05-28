@@ -15,6 +15,7 @@ import com.example.verify.R;
 import com.example.verify.components.ApartmentProfile;
 import com.example.verify.fragments.AddApartmentFragment;
 import com.example.verify.fragments.ApartmentProfileFragment;
+import com.example.verify.fragments.ApartmentReviewContainerFragment;
 import com.example.verify.fragments.BaseFragment;
 import com.example.verify.fragments.DummySearchFragment;
 import com.example.verify.fragments.IntroductionFragment;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements
     private SearchFragment mSearchFragment;
     private ApartmentProfileFragment mApartmentProfileFragment;
     private IntroductionFragment mIntroductionFragment;
+    private ApartmentReviewContainerFragment mApartmentReviewContainerFragment;
     //private LottieAnimationView mLottieAnimationView;
 
 
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements
         mAddApartmentFragment = new AddApartmentFragment();
         mApartmentProfileFragment = new ApartmentProfileFragment();
         mIntroductionFragment = new IntroductionFragment();
+        mApartmentReviewContainerFragment = new ApartmentReviewContainerFragment();
 
         setUpNavBar();
 
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements
             public void onAnimationEnd(Animator animation) {
                 getSupportFragmentManager().
                         beginTransaction()
-                        .replace(R.id.container_fragment, mIntroductionFragment)
+                        .replace(R.id.container_fragment, mApartmentReviewContainerFragment)
                         .commit();
                 mMainActivityStateManager.pushFragmentState(FragmentState.Introduction);
             }
