@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ApartmentReviewContainerFragment">
 
@@ -43,7 +44,7 @@
         android:id="@+id/apartment_review_view_pager"
         android:layout_below="@+id/apartment_review_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:orientation="vertical" />

@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements
             public void onAnimationEnd(Animator animation) {
                 getSupportFragmentManager().
                         beginTransaction()
-                        .replace(R.id.container_fragment, mIntroductionFragment)
+                        .replace(R.id.container_fragment, mApartmentReviewContainerFragment)
                         .commit();
                 mMainActivityStateManager.pushFragmentState(FragmentState.Introduction);
             }

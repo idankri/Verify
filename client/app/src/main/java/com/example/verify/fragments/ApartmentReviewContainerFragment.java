@@ -91,15 +91,16 @@ public class ApartmentReviewContainerFragment extends Fragment {
         mPager =  Objects.requireNonNull(getView()).findViewById(R.id.apartment_review_view_pager);
         mTabLayout = Objects.requireNonNull(getView()).findViewById(R.id.apartment_review_tab_layout);
         mPager.setAdapter(new ScreenSlidePagerAdapter(getActivity(), mInternalFragments));
-        mPager.setOffscreenPageLimit(5);
+        mPager.setOffscreenPageLimit(4);
         //mPager.setClipToPadding(false);
         //mPager.setPadding(0,0,0,50);
         //mPager.setPageTransformer(new Transformer);
         //mPager.setPageTransformer(((page, position) -> {
          //   page.setTranslationY(position * -(2 * 50 + 50));
         //}));
-        mPager.setPageTransformer((page, position) -> {
-            float myOffset = position * -(2 * 100 + 100);
+       /*mPager.setPageTransformer((page, position) -> {
+
+            float myOffset = position * -(2 * 200 + 100);
             if (position < -1) {
                 page.setTranslationY(-myOffset);
             } else if (position <= 1) {
@@ -111,7 +112,7 @@ public class ApartmentReviewContainerFragment extends Fragment {
                 //page.setAlpha(0);
                 page.setTranslationY(myOffset);
             }
-        });
+        });*/
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

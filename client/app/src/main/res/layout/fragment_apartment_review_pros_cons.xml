@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ApartmentReviewProsConsFragment">
 
@@ -10,11 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
+        android:layout_margin="10dp"
         android:background="@drawable/edit_text_background"
-        android:elevation="1dp" >
+        android:elevation="1dp"
+        android:layout_marginBottom="20dp">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/apartment_review_pros_cons_tab_layout"
@@ -45,8 +44,6 @@
             android:id="@+id/apartment_review_pros_cons_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            
-
             android:layout_below="@+id/apartment_review_pros_cons_tab_layout">
 
 
