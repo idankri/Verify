@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ApartmentProfileFragment">
 
@@ -94,6 +95,7 @@
         android:gravity="end|top" />
 
     <RelativeLayout
+        android:id="@+id/apartment_general_ratings"
         android:layout_width="360dp"
         android:layout_height="224dp"
         android:layout_centerHorizontal="true"
@@ -270,8 +272,25 @@
             android:text="@string/apartment_profile_around_rating_placeholder"
             android:textAppearance="@style/apartment_profile_general_review_title" />
 
-
     </RelativeLayout>
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:layout_below="@+id/apartment_general_ratings"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="28dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review1"/>
+
+            <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review2"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
 
 </RelativeLayout>
