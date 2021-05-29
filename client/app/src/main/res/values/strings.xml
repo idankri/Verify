@@ -73,8 +73,10 @@
 
     <string name="bottom_line_title">בשורה התחתונה, מה אתם אומרים?</string>
     <string name="bottom_line_subtitle">אחרי שקראת, חוות הדעת עזרה לך?</string>
-    <string name ="bottom_line_green_circle_text">לגמרי</string>
-    <string name ="bottom_line_red_circle_text">פחות</string>
+    <string name="bottom_line_green_circle_text">לגמרי</string>
+    <string name="bottom_line_red_circle_text">פחות</string>
+
+    <string name="missing_information_title">חסר לדעתך מידע?</string>
 
     <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>
