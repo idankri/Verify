@@ -62,6 +62,8 @@
     <string name="apartment_review_entry_date_placeholder">ינואר 2020</string>
     <string name="apartment_review_leave_date_placeholder">אפריל 2021</string>
     <string name="apartment_review_review_title">דירוג הדירה עפ"י הדייר/ת</string>
+    <string name="apartment_review_pros_placeholder">יתרונות (17)</string>
+    <string name="apartment_review_cons_placeholder">חסרונות (9)</string>
 
     <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>

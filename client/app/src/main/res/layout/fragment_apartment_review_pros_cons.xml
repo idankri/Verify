@@ -1,16 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@color/custom_blue_1"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ApartmentReviewProsConsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="poscons"
-        android:textColor="@color/black"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/edit_text_background"
+        android:elevation="1dp" >
 
-</FrameLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/apartment_review_pros_cons_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layoutDirection="rtl"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/custom_green_1"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/black"
+            app:tabMode="fixed">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apartment_review_pros_placeholder" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apartment_review_cons_placeholder" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <ExpandableListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apartment_review_pros_cons_tab_layout">
+
+
+        </ExpandableListView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
