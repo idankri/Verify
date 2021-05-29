@@ -1,15 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_width="328dp"
+    android:layout_height="wrap_content"
     tools:context=".fragments.ApartmentReviewOpinionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="opinion"
-        android:textColor="@color/black"/>
+        android:id="@+id/review_opinion_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/apartment_review_opinion_title"
+        android:textAppearance="@style/apartment_review_opinion_bold_titles"
+        android:gravity="right|top"
+        />
 
-</FrameLayout>
+    <include
+        android:id="@+id/opinion1"
+        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_below="@id/review_opinion_title"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        layout="@layout/apartment_review_single_opinion"
+         />
+
+    <include
+        android:id="@+id/opinion2"
+        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_below="@id/opinion1"
+        android:layout_marginTop="35dp"
+        android:layout_centerHorizontal="true"
+        layout="@layout/apartment_review_single_opinion"
+        />
+
+    <include
+        android:id="@+id/opinion3"
+        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_below="@id/opinion2"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        layout="@layout/apartment_review_single_opinion"
+        />
+
+    <ImageView
+        android:id="@+id/offensive_content_alert_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_offensive_content_alert"
+        android:layout_below="@id/opinion3"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignEnd="@id/opinion3"
+        android:layout_marginEnd="10dp"/>
+
+    <TextView
+        android:id="@+id/offensive_content_alert_text"
+        android:layout_width="93dp"
+        android:layout_height="18dp"
+        android:layout_toLeftOf="@id/offensive_content_alert_icon"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/opinion3"
+        android:layout_alignTop="@id/offensive_content_alert_icon"
+        android:layout_marginTop="3dp"
+        android:text="@string/opinion_offensive_content_alert_text"
+        android:textAppearance="@style/small_alert_link_text"
+        android:lineSpacingExtra="5sp"
+        android:translationY="-2.4sp"
+        android:gravity="right|top"
+        />
+
+
+</RelativeLayout>
