@@ -78,5 +78,8 @@
 
     <string name="missing_information_title">חסר לדעתך מידע?</string>
 
+    <string name="more_reviews_title_prefix">דעות נוספות על</string>
+    <string name="more_reviews_title_suffix_placeholder">מונטיפיורי 22, דירה 14, קומה 7</string>
+
     <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>
