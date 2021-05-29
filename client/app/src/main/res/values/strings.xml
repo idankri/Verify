@@ -71,5 +71,10 @@
     <string name="opinion_content_placeholder">"למרות שהחוזה הוגן וסטנדרטי לאזור, ההתנהלות היומיומית עם בעל הדירה הייתה קשה ומתסכלת... צריך לנדנד לו מלא כדי שיתייחס</string>
     <string name="opinion_offensive_content_alert_text">דיווח על תוכן פוגעני</string>
 
+    <string name="bottom_line_title">בשורה התחתונה, מה אתם אומרים?</string>
+    <string name="bottom_line_subtitle">אחרי שקראת, חוות הדעת עזרה לך?</string>
+    <string name ="bottom_line_green_circle_text">לגמרי</string>
+    <string name ="bottom_line_red_circle_text">פחות</string>
+
     <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>
