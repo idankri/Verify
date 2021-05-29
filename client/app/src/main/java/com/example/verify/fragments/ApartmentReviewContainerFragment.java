@@ -74,7 +74,8 @@ public class ApartmentReviewContainerFragment extends Fragment {
                 new ApartmentReviewOverviewFragment(),
                 new ApartmentReviewProsConsFragment(),
                 new ApartmentReviewOpinionFragment(),
-                new ApartmentReviewBottomLineFragment()};
+                new ApartmentReviewBottomLineFragment(),
+                new ApartmentReviewMoreReviewsFragment()};
     }
 
     @Override

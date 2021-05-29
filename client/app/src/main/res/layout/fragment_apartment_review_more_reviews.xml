@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="328dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".fragments.ApartmentReviewBottomLineFragment">
 
-    <TextView
-        android:id="@+id/more_reviews_title_prefix"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="28dp"
-        android:layout_marginRight="28dp"
-        android:gravity="right|top"
-        android:text="@string/more_reviews_title_prefix"
-        android:textAppearance="@style/apartment_review_opinion_bold_titles"
-        android:textSize="14sp"/>
-
-    <TextView
-        android:id="@+id/more_reviews_title_suffix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@id/more_reviews_title_prefix"
-        android:layout_marginTop="28dp"
-        android:layout_marginRight="6dp"
-        android:gravity="right|top"
-        android:text="@string/more_reviews_title_suffix_placeholder"
-        android:textAppearance="@style/apartment_review_opinion_bold_titles"
-        android:textSize="14sp"/>
-
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="224dp"
-        android:layout_below="@+id/more_reviews_title_prefix"
-        android:layout_marginTop="32dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="28dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/apartment_review_more_reviews_container"
+        android:layout_below="@+id/apartment_review_missing_information_container"
+        android:elevation="1dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background">
+        <TextView
+            android:id="@+id/more_reviews_title_prefix"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="28dp"
+            android:gravity="right|top"
+            android:text="@string/more_reviews_title_prefix"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles"
+            android:textSize="14sp"/>
 
-            <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review1"/>
+        <TextView
+            android:id="@+id/more_reviews_title_suffix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/more_reviews_title_prefix"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="6dp"
+            android:gravity="right|top"
+            android:text="@string/more_reviews_title_suffix_placeholder"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles"
+            android:textSize="14sp"/>
 
-            <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review2"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </HorizontalScrollView>
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_below="@+id/more_reviews_title_prefix"
+            android:layout_marginTop="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="30dp"
+            android:scrollbars="none">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review1"/>
+
+                <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review2"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
 
 </RelativeLayout>
