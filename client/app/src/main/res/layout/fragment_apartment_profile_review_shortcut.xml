@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reviewX"
+    android:layout_width="222dp"
+    android:layout_height="224dp"
+    android:layout_marginEnd="30dp"
+    app:layout_constraintEnd_toStartOf="@+id/review1"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="5dp"
+    android:elevation="5dp"
+    android:background="@drawable/edit_text_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/review_shortcut_pic"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@color/light_grey_background" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="81dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/ic_rectangle_435" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="81dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/ic_single_tenant_image" />
+
+
+    <TextView
+        android:id="@+id/review_shortcut_tenant_kind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_shortcut_pic"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="27dp"
+        android:gravity="end|top"
+        android:letterSpacing="0.03"
+        android:text="@string/apartment_profile_review_shortcut_tenant_kind"
+        android:textAppearance="@style/apartment_profile_general_review_title"
+        android:textFontWeight="400"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_shortcut_pic"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ic_little_arrow" />
+
+    <RatingBar
+        android:id="@+id/review_shortcut_rating_bar"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_below="@+id/review_shortcut_tenant_kind"
+        android:layout_alignParentEnd="true"
+        android:isIndicator="true"
+        android:rating="3"
+        android:rotation="180"
+        android:scaleY="-0.6"
+        android:scaleX="0.6"
+        android:theme="@style/RatingBar" />
+
+    <TextView
+        android:id="@+id/apartment_review_entry_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_shortcut_rating_bar"
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/review_shortcut_tenant_kind"
+        android:text="@string/apartment_review_entry_title"
+        android:textColor="@color/black"
+        style="@style/apartment_profile_review_shortcut_small_text"
+        android:textFontWeight="300" />
+
+    <TextView
+        android:id="@+id/apartment_review_leave_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_shortcut_rating_bar"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/apartment_review_entry_title"
+        android:layout_marginEnd="60dp"
+        android:text="@string/apartment_review_leave_title"
+        android:textColor="@color/black"
+        style="@style/apartment_profile_review_shortcut_small_text"
+        android:textFontWeight="300" />
+
+    <RelativeLayout
+        android:layout_width="87dp"
+        android:layout_height="24dp"
+        android:background="@drawable/edit_text_background_2"
+        android:elevation="1dp"
+        android:id="@+id/apartment_review_entry_date_container"
+        android:layout_below="@id/apartment_review_entry_title"
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/apartment_review_entry_title"
+        android:text="@string/apartment_review_entry_title"
+        android:textColor="@color/black"
+        android:textFontWeight="300" >
+
+        <RelativeLayout
+            android:layout_width="7dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/entry_rectangle_fill" />
+
+        <TextView
+            android:id="@+id/apartment_review_entry_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/apartment_review_entry_date_placeholder"
+            android:textColor="@color/black"
+            style="@style/apartment_profile_review_shortcut_small_text"
+            android:textFontWeight="300" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="87dp"
+        android:layout_height="24dp"
+        android:background="@drawable/edit_text_background_2"
+        android:elevation="1dp"
+        android:id="@+id/apartment_review_leave_date_container"
+        android:layout_below="@id/apartment_review_entry_title"
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/apartment_review_leave_title"
+        android:text="@string/apartment_review_entry_title"
+        android:textColor="@color/black"
+        android:textFontWeight="300" >
+
+        <RelativeLayout
+            android:layout_width="7dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/leave_rectangle_fill" />
+
+        <TextView
+            android:id="@+id/apartment_review_leave_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/apartment_review_leave_date_placeholder"
+            android:textColor="@color/black"
+            style="@style/apartment_profile_review_shortcut_small_text"
+            android:textFontWeight="300" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

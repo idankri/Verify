@@ -35,6 +35,8 @@
     <string name="apartment_profile_around_rating_placeholder">3.5</string>
     <string name="apartment_profile_general_rating_placeholder">4</string>
 
+    <string name="apartment_profile_review_shortcut_tenant_kind">דייר/ת יחיד/ה</string>
+
     <string name="introduction_layout_1_title">מצאת את הדירה שאהבת?</string>
     <string name="introduction_layout_1_content">הזינו את כתובתה המלאה כולל עיר מגורים,
     שם הרחוב, מס\' בניין, קומה ודירה</string>
