@@ -27,7 +27,7 @@
     <string name="apartment_profile_floor_placeholder">7</string>
     <string name="apartment_profile_general_review_title">דירוג כללי של הדירה</string>
     <string name="apartment_profile_reviews_placeholder">(3 ביקורות)</string>
-    <string name="apartment_profile_apartment_holder">בעל הדירה</string>
+    <string name="apartment_profile_apartment_holder">בעל/ת הדירה</string>
     <string name="apartment_profile_apartment_holder_rating_placeholder">4.0</string>
     <string name="apartment_profile_maintenance">תחזוקה</string>
     <string name="apartment_profile_maintenance_rating_placeholder">4.0</string>
@@ -64,6 +64,17 @@
     <string name="apartment_review_review_title">דירוג הדירה עפ"י הדייר/ת</string>
     <string name="apartment_review_pros_placeholder">יתרונות (17)</string>
     <string name="apartment_review_cons_placeholder">חסרונות (9)</string>
+
+    <string name="apartment_review_opinion_title">חוות דעת ומידע נוסף שחשוב לראות</string>
+
+    <string name="opinion_type_subtitle_placeholder">התנהלות כללית</string>
+    <string name="opinion_content_placeholder">"למרות שהחוזה הוגן וסטנדרטי לאזור, ההתנהלות היומיומית עם בעל הדירה הייתה קשה ומתסכלת... צריך לנדנד לו מלא כדי שיתייחס</string>
+    <string name="opinion_offensive_content_alert_text">דיווח על תוכן פוגעני</string>
+
+    <string name="bottom_line_title">בשורה התחתונה, מה אתם אומרים?</string>
+    <string name="bottom_line_subtitle">אחרי שקראת, חוות הדעת עזרה לך?</string>
+    <string name ="bottom_line_green_circle_text">לגמרי</string>
+    <string name ="bottom_line_red_circle_text">פחות</string>
 
     <string name="verify_form_url">https://k19r9nbtgpr.typeform.com/to/d7AGRRud</string>
 </resources>
