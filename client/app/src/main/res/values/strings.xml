@@ -64,7 +64,7 @@
     <string name="apartment_review_review_title">דירוג הדירה עפ"י הדייר/ת</string>
     <string name="apartment_review_pros_placeholder">יתרונות (17)</string>
     <string name="apartment_review_cons_placeholder">חסרונות (9)</string>
-    <string name="apartment_review_pros_cons_group_1_title">בעל\ת הדירה</string>
+    <string name="apartment_review_pros_cons_group_1_title">בעל/ת הדירה</string>
     <string name="apartment_review_pros_cons_group_2_title">תחזוקה</string>
     <string name="apartment_review_pros_cons_group_3_title">מסביב לדירה</string>
     <string-array name="apartment_review_pros_group_1_placeholder">
@@ -74,7 +74,7 @@
     </string-array>
     <string name="apartment_review_pros_cons_group_2_subtitle_1">כללי</string>
     <string name="apartment_review_pros_cons_group_2_subtitle_2">מטבח</string>
-    <string name="apartment_review_pros_cons_group_2_subtitle_3">שירותים\מקלחת</string>
+    <string name="apartment_review_pros_cons_group_2_subtitle_3">שירותים/מקלחת</string>
     <string-array name="apartment_review_pros_group_2_sub_1_placeholder">
         <item>מיזוג אוויר - טוב, אין בעיות מיוחדות</item>
         <item>בידוד אקוסטי - הדירה מבודדת רעשים</item>
