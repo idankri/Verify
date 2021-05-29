@@ -1,5 +1,6 @@
 package com.example.verify.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,7 @@ public class ApartmentProfileFragment extends Fragment {
     private String mParam2;
 
     private ApartmentProfile mProfile;
+    private ApartmentProfileFragmentListener mApartmentProfileFragmentListener;
 
     public ApartmentProfileFragment() {
         // Required empty public constructor
@@ -88,6 +90,42 @@ public class ApartmentProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         createFromApartmentProfile(mProfile);
+
+        // TODO: replace with more generic logic
+        View review = view.findViewById(R.id.review1);
+        review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mApartmentProfileFragmentListener != null){
+                    String headerText = "רחוב " +
+                            mProfile.getStreet() +
+                            " " +
+                            mProfile.getBuilding() +
+                            ", דירה " +
+                            mProfile.getApartment() +
+                            ", קומה " +
+                            mProfile.getFloor();
+                    mApartmentProfileFragmentListener.onReviewClick(headerText);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof ApartmentProfileFragmentListener){
+            mApartmentProfileFragmentListener = (ApartmentProfileFragmentListener) context;
+        }
+        else{
+            throw new RuntimeException(context.toString() + " must imlement DummySearchFragmentListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mApartmentProfileFragmentListener = null;
     }
 
     @Override
@@ -95,5 +133,9 @@ public class ApartmentProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_apartment_profile, container, false);
+    }
+
+    public interface ApartmentProfileFragmentListener{
+        void onReviewClick(String headerText);
     }
 }

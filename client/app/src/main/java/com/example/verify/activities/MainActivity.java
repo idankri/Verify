@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity implements
         SearchFragment.SearchFragmentListener,
         ActionBarWrapper.ActionBarWrapperListener,
         AddApartmentFragment.AddApartmentFragmentListener,
-        IntroductionFragment.IntroductionFragmentListener {
+        IntroductionFragment.IntroductionFragmentListener,
+        ApartmentProfileFragment.ApartmentProfileFragmentListener {
 
     private ActionBarWrapper mActionBar;
     //private ActionBar mActionBar;
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements
             public void onAnimationEnd(Animator animation) {
                 getSupportFragmentManager().
                         beginTransaction()
-                        .replace(R.id.container_fragment, mApartmentReviewContainerFragment)
+                        .replace(R.id.container_fragment, mIntroductionFragment)
                         .commit();
                 mMainActivityStateManager.pushFragmentState(FragmentState.Introduction);
             }
@@ -171,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements
                 .commit();
     }
 
+
     @Override
     public void onSearchLogoClick() {
         throw new UnsupportedOperationException("Not implemented yet");
@@ -190,6 +192,17 @@ public class MainActivity extends AppCompatActivity implements
                 .replace(R.id.container_fragment, mDummySearchFragment)
                 .commit();
         mIntroductionFragment = null; // delete pointer for garbage collection
+    }
+
+    @Override
+    public void onReviewClick(String headerText) {
+        mMainActivityStateManager.pushFragmentState(FragmentState.Review);
+        getSupportFragmentManager().
+                beginTransaction()
+                .replace(R.id.container_fragment, mApartmentReviewContainerFragment)
+                .commit();
+        mActionBar.setUpReviewText(headerText);
+
     }
 
     private class MainActivityStateManager {
@@ -222,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         private void setFragmentState(FragmentState fragmentState){
-            mFragmentState = fragmentState;
+
             if(fragmentState == FragmentState.Found){
                 mActionBarWrapper.setActionBarVisibility(true);
                 mNavbar.setVisibility(View.INVISIBLE);
@@ -247,6 +260,15 @@ public class MainActivity extends AppCompatActivity implements
                 mActionBarWrapper.setActionBarVisibility(true);
                 mNavbar.setVisibility(View.INVISIBLE);
             }
+            else if(fragmentState == FragmentState.Review){
+                mActionBarWrapper.setUpReviewMode();
+                mNavbar.setVisibility(View.INVISIBLE);
+            }
+            if(mFragmentState == FragmentState.Review){
+                mActionBarWrapper.setUpRegularMode();
+            }
+
+            mFragmentState = fragmentState;
         }
 
         public void pushFragmentState(FragmentState fragmentState){
@@ -262,6 +284,8 @@ public class MainActivity extends AppCompatActivity implements
             } else{
                 mActionBarWrapper.setActionBarUtilsVisibility(true);
             }
+
+
             setFragmentState(fragmentState);
         }
 
@@ -290,6 +314,8 @@ public class MainActivity extends AppCompatActivity implements
                 return mAddApartmentFragment;
             case Found:
                 return mApartmentProfileFragment;
+            case Review:
+                return mApartmentReviewContainerFragment;
             default:
                 throw new UnsupportedOperationException();
 
@@ -302,6 +328,7 @@ public class MainActivity extends AppCompatActivity implements
         DummySearch,
         Searching,
         AddApartment,
-        Found
+        Found,
+        Review
     }
 }
