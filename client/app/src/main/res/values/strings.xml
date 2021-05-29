@@ -64,6 +64,61 @@
     <string name="apartment_review_review_title">דירוג הדירה עפ"י הדייר/ת</string>
     <string name="apartment_review_pros_placeholder">יתרונות (17)</string>
     <string name="apartment_review_cons_placeholder">חסרונות (9)</string>
+    <string name="apartment_review_pros_cons_group_1_title">בעל\ת הדירה</string>
+    <string name="apartment_review_pros_cons_group_2_title">תחזוקה</string>
+    <string name="apartment_review_pros_cons_group_3_title">מסביב לדירה</string>
+    <string-array name="apartment_review_pros_group_1_placeholder">
+        <item>חוזה - סטנדרטי והוגן</item>
+        <item>כניסה של בעלי חיים - מאפשר</item>
+        <item>דמי שכירות - הוגנים ביחס לסביבה</item>
+    </string-array>
+    <string name="apartment_review_pros_cons_group_2_subtitle_1">כללי</string>
+    <string name="apartment_review_pros_cons_group_2_subtitle_2">מטבח</string>
+    <string name="apartment_review_pros_cons_group_2_subtitle_3">שירותים\מקלחת</string>
+    <string-array name="apartment_review_pros_group_2_sub_1_placeholder">
+        <item>מיזוג אוויר - טוב, אין בעיות מיוחדות</item>
+        <item>בידוד אקוסטי - הדירה מבודדת רעשים</item>
+        <item>עובש ורטיבות - אין בכלל בעיות מסוג זה</item>
+    </string-array>
+    <string-array name="apartment_review_pros_group_2_sub_2_placeholder">
+        <item>בעיות בצנרת וסתימות - בתדירות נמוכה</item>
+        <item>נוחות יומיומית - תענוג, מרווח מאוד</item>
+        <item>אחסון - לא חסר מקום</item>
+    </string-array>
+    <string-array name="apartment_review_pros_group_2_sub_3_placeholder">
+        <item>זרם המים - לא יכולתי לבקש טוב יותר</item>
+        <item>בעיות אינסטלציה - לא נתקלתי</item>
+        <item>דוד שמש - מעולה, מתחמם מהר</item>
+    </string-array>
+    <string-array name="apartment_review_pros_group_3_placeholder">
+        <item>עבודות בניה - אין בכלל באזור</item>
+        <item>נגישות לבעלי מוגבלויות - קיימת</item>
+        <item>תחב"צ - קרובה לרכבת ויש תחנות אוטובוס באזור</item>
+        <item>חנייה - אפשרי למצוא באזור</item>
+        <item>גינות כלבים ופארקים - אפשרי למצוא באזור</item>
+    </string-array>
+    <string-array name="apartment_review_cons_group_1_placeholder">
+        <item>לא זמין כשצריך אותו</item>
+        <item>לא דואג לתחזוקה של הדירה</item>
+        <item>לא נעים להתנהל מולו</item>
+    </string-array>
+    <string-array name="apartment_review_cons_group_2_sub_1_placeholder">
+        <item>קליטת אינטרנט וסלולר לא טובה</item>
+        <item>הדירה לא מבודדת קור כמו שצריך</item>
+        <item>חם נורא בקיץ, אין בידוד חום</item>
+    </string-array>
+    <string-array name="apartment_review_cons_group_2_sub_2_placeholder">
+        <item>ריק לכרגע</item>
+    </string-array>
+    <string-array name="apartment_review_cons_group_2_sub_3_placeholder">
+        <item>ריק לכרגע</item>
+    </string-array>
+    <string-array name="apartment_review_cons_group_3_placeholder">
+        <item>שכנים רעשניים מאוד</item>
+        <item>אין הרבה סופרמרקטים באזור</item>
+        <item>אין בכלל ברים ומסעדות באזור</item>
+    </string-array>
+
 
     <string name="apartment_review_opinion_title">חוות דעת ומידע נוסף שחשוב לראות</string>
 

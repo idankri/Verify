@@ -42,9 +42,14 @@
         </com.google.android.material.tabs.TabLayout>
 
         <ExpandableListView
+            android:id="@+id/apartment_review_pros_cons_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            
+
             android:layout_below="@+id/apartment_review_pros_cons_tab_layout">
+
+
 
 
         </ExpandableListView>
