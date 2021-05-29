@@ -1,128 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="328dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".fragments.ApartmentReviewBottomLineFragment">
 
-    <TextView
-        android:id="@+id/bottom_line_title"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="28dp"
-        android:layout_marginRight="28dp"
-        android:gravity="right|top"
-        android:text="@string/bottom_line_title"
-        android:textAppearance="@style/apartment_review_opinion_bold_titles" />
+        android:id="@+id/apartment_review_bottom_line_container">
 
-    <TextView
-        android:id="@+id/bottom_line_subtitle"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/bottom_line_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="28dp"
+            android:gravity="right|top"
+            android:text="@string/bottom_line_title"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles" />
+
+        <TextView
+            android:id="@+id/bottom_line_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bottom_line_title"
+            android:layout_marginTop="8dp"
+            android:layout_alignRight="@id/bottom_line_title"
+            android:text="@string/bottom_line_subtitle"
+            android:textAppearance="@style/opinion_content"
+            android:gravity="right|top"
+            />
+
+        <View
+            android:id="@+id/green_circle"
+            android:layout_width="87dp"
+            android:layout_height="87dp"
+            android:layout_below="@id/bottom_line_subtitle"
+            android:layout_marginTop="36dp"
+            android:layout_alignRight="@id/bottom_line_subtitle"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/ic_green_circle"
+            />
+
+        <View
+            android:id="@+id/red_circle"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
+            android:layout_alignTop="@id/green_circle"
+            android:layout_marginTop="6dp"
+            android:layout_toLeftOf="@id/green_circle"
+            android:layout_marginRight="58dp"
+            android:background="@drawable/ic_red_circle"
+            />
+
+        <View
+            android:id="@+id/right_grey_filled_circle"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignTop="@+id/green_circle"
+            android:layout_alignEnd="@+id/green_circle"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/ic_grey_filled_circle" />
+
+        <TextView
+            android:id="@+id/right_votes_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/right_grey_filled_circle"
+            android:layout_alignRight="@id/right_grey_filled_circle"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="2dp"
+            android:text="50"
+            android:textSize="14sp"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles"
+            android:gravity="right|top"
+            />
+
+        <TextView
+            android:id="@+id/green_circle_inner_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/green_circle"
+            android:layout_alignEnd="@+id/green_circle"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="right|top"
+            android:text="@string/bottom_line_green_circle_text"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles" />
+
+        <View
+            android:id="@+id/left_grey_filled_circle"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignTop="@+id/red_circle"
+            android:layout_alignEnd="@+id/red_circle"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/ic_grey_filled_circle" />
+
+        <TextView
+            android:id="@+id/left_votes_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/left_grey_filled_circle"
+            android:layout_alignRight="@id/left_grey_filled_circle"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="2dp"
+            android:text="12"
+            android:textSize="14sp"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles"
+            android:gravity="right|top"
+            />
+
+        <TextView
+            android:id="@+id/red_circle_inner_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/red_circle"
+            android:layout_alignEnd="@+id/red_circle"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="18dp"
+            android:gravity="right|top"
+            android:text="@string/bottom_line_red_circle_text"
+            android:textSize="12sp"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles" />
+    </RelativeLayout>
+
+    <include layout="@layout/fragment_apartment_review_missing_information"
+        android:layout_below="@+id/apartment_review_bottom_line_container"
+        android:id="@+id/apartment_review_missing_information_container"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bottom_line_title"
-        android:layout_marginTop="8dp"
-        android:layout_alignRight="@id/bottom_line_title"
-        android:text="@string/bottom_line_subtitle"
-        android:textAppearance="@style/opinion_content"
-        android:gravity="right|top"
-        />
+        android:layout_width="wrap_content" />
 
-    <View
-        android:id="@+id/green_circle"
-        android:layout_width="87dp"
-        android:layout_height="87dp"
-        android:layout_below="@id/bottom_line_subtitle"
-        android:layout_marginTop="36dp"
-        android:layout_alignRight="@id/bottom_line_subtitle"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/ic_green_circle"
-        />
-
-    <View
-        android:id="@+id/red_circle"
-        android:layout_width="63dp"
-        android:layout_height="63dp"
-        android:layout_alignTop="@id/green_circle"
-        android:layout_marginTop="6dp"
-        android:layout_toLeftOf="@id/green_circle"
-        android:layout_marginRight="58dp"
-        android:background="@drawable/ic_red_circle"
-        />
-
-    <View
-        android:id="@+id/right_grey_filled_circle"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:layout_alignTop="@+id/green_circle"
-        android:layout_alignEnd="@+id/green_circle"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="2dp"
-        android:background="@drawable/ic_grey_filled_circle" />
-
-    <TextView
-        android:id="@+id/right_votes_counter"
-        android:layout_width="wrap_content"
+    <include layout="@layout/fragment_apartment_review_more_reviews"
+        android:layout_below="@+id/apartment_review_missing_information_container"
+        android:id="@+id/apartment_review_more_reviews_container"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/right_grey_filled_circle"
-        android:layout_alignRight="@id/right_grey_filled_circle"
-        android:layout_marginRight="3dp"
-        android:layout_marginTop="2dp"
-        android:text="50"
-        android:textSize="14sp"
-        android:textAppearance="@style/apartment_review_opinion_bold_titles"
-        android:gravity="right|top"
-        />
+        android:layout_width="wrap_content" />
 
-    <TextView
-        android:id="@+id/green_circle_inner_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/green_circle"
-        android:layout_alignEnd="@+id/green_circle"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="right|top"
-        android:text="@string/bottom_line_green_circle_text"
-        android:textAppearance="@style/apartment_review_opinion_bold_titles" />
-
-    <View
-        android:id="@+id/left_grey_filled_circle"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:layout_alignTop="@+id/red_circle"
-        android:layout_alignEnd="@+id/red_circle"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="@drawable/ic_grey_filled_circle" />
-
-    <TextView
-        android:id="@+id/left_votes_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/left_grey_filled_circle"
-        android:layout_alignRight="@id/left_grey_filled_circle"
-        android:layout_marginRight="3dp"
-        android:layout_marginTop="2dp"
-        android:text="12"
-        android:textSize="14sp"
-        android:textAppearance="@style/apartment_review_opinion_bold_titles"
-        android:gravity="right|top"
-        />
-
-    <TextView
-        android:id="@+id/red_circle_inner_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/red_circle"
-        android:layout_alignEnd="@+id/red_circle"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="18dp"
-        android:gravity="right|top"
-        android:text="@string/bottom_line_red_circle_text"
-        android:textSize="12sp"
-        android:textAppearance="@style/apartment_review_opinion_bold_titles" />
 
 </RelativeLayout>
+
