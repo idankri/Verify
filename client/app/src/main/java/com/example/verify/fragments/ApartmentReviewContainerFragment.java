@@ -145,8 +145,7 @@ public class ApartmentReviewContainerFragment extends Fragment {
                 mTabLayout.selectTab(mTabLayout.getTabAt(position));
             }
         });
-
-        createFromReview(mReview);
+    createFromReview(mReview);
     }
 
     private void createFromReview(ApartmentReview review){

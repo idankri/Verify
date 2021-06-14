@@ -297,7 +297,7 @@
             android:orientation="horizontal"
             android:id="@+id/apartment_profile_review_container_constraint">
 
-
+            
 
         </LinearLayout>
     </HorizontalScrollView>
