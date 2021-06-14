@@ -40,6 +40,7 @@
             android:text="@string/apartment_review_tab_title_4" />
     </com.google.android.material.tabs.TabLayout>
 
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/apartment_review_view_pager"
         android:layout_below="@+id/apartment_review_tab_layout"
