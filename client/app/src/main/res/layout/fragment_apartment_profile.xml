@@ -118,6 +118,7 @@
             android:textFontWeight="400" />
 
         <TextView
+            android:id="@+id/apartment_profile_review_num_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -146,6 +147,7 @@
             android:theme="@style/RatingBar" />
 
         <TextView
+            android:id="@+id/apartment_general_rating_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -170,6 +172,7 @@
             android:textAppearance="@style/apartment_profile_general_review_title" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/apartment_profile_apartment_holder_rating_progress"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:progress="80"
@@ -184,6 +187,7 @@
             app:trackCornerRadius="10dp" />
 
         <TextView
+            android:id="@+id/apartment_profile_apartment_holder_rating_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -209,6 +213,7 @@
             android:textAppearance="@style/apartment_profile_general_review_title" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/apartment_profile_maintenance_rating_progress"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:progress="80"
@@ -223,6 +228,7 @@
             app:trackCornerRadius="10dp"/>
 
         <TextView
+            android:id="@+id/apartment_profile_maintenance_rating_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -247,6 +253,7 @@
             android:textAppearance="@style/apartment_profile_general_review_title" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/apartment_profile_around_rating_progress"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:progress="70"
@@ -261,6 +268,7 @@
             app:indicatorColor="@color/custom_green_1" />
 
         <TextView
+            android:id="@+id/apartment_profile_around_rating_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
