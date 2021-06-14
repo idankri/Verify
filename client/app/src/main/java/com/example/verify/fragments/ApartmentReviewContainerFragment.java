@@ -139,20 +139,14 @@ public class ApartmentReviewContainerFragment extends Fragment {
                 mTabLayout.selectTab(mTabLayout.getTabAt(position));
             }
         });
-
-
-
-
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
         private final Fragment[] mFragments;
-        //private final Button mButton;
 
         public ScreenSlidePagerAdapter(FragmentActivity fa, Fragment[] fragments) {
             super(fa);
             mFragments = fragments;
-            //mButton = button;
         }
 
         @Override

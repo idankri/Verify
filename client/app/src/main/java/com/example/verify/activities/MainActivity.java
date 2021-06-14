@@ -137,6 +137,21 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void onBackPressed() {
+        try{
+            FragmentState foundState = mMainActivityStateManager.popFragmentState();
+            getSupportFragmentManager().
+                    beginTransaction()
+                    .replace(R.id.container_fragment, getFragmentFromFragmentState(foundState))
+                    .commit();
+        }
+        catch(UnsupportedOperationException e){
+            super.onBackPressed();
+        }
+
+    }
+
+    @Override
     public void onDummyButtonClick() {
         mMainActivityStateManager.pushFragmentState(FragmentState.Searching);
         getSupportFragmentManager().
