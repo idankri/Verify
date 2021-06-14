@@ -30,6 +30,7 @@
         android:layout_alignRight="@+id/city_field"
         android:layout_marginRight="25dp"
         android:layout_marginTop="125dp"
+        android:textColor="@color/black"
         android:text="@string/full_address_hint"/>
 
     <TextView
@@ -59,6 +60,7 @@
         android:paddingBottom="5dp"
         android:autofillHints=""
         android:textColor="@color/black"
+        android:text="באר שבע"
         android:inputType="text" />
 
     <TextView
@@ -87,6 +89,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
+        android:text="מונטיפיורי"
         android:textColor="@color/black"
         android:inputType="text" />
 
@@ -116,6 +119,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
+        android:text="15"
         android:textColor="@color/black"
         android:inputType="number" />
 
@@ -145,6 +149,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
+        android:text="5"
         android:textColor="@color/black"
         android:inputType="number" />
 
@@ -174,6 +179,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
+        android:text="24"
         android:textColor="@color/black"
         android:inputType="number" />
 
