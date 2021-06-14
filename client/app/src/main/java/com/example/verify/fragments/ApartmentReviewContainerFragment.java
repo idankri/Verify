@@ -92,7 +92,7 @@ public class ApartmentReviewContainerFragment extends Fragment {
         mPager =  Objects.requireNonNull(getView()).findViewById(R.id.apartment_review_view_pager);
         mTabLayout = Objects.requireNonNull(getView()).findViewById(R.id.apartment_review_tab_layout);
         mPager.setAdapter(new ScreenSlidePagerAdapter(getActivity(), mInternalFragments));
-        mPager.setOffscreenPageLimit(4);
+        mPager.setOffscreenPageLimit(10);
         //mPager.setClipToPadding(false);
         //mPager.setPadding(0,0,0,50);
         //mPager.setPageTransformer(new Transformer);
