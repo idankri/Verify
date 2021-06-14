@@ -5,15 +5,22 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.verify.R;
 import com.example.verify.components.ApartmentProfile;
+import com.example.verify.components.ApartmentProfileEnriched;
+import com.example.verify.components.ApartmentReview;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 import java.util.Objects;
 
@@ -33,18 +40,18 @@ public class ApartmentProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ApartmentProfile mProfile;
+    private ApartmentProfileEnriched mProfile;
     private ApartmentProfileFragmentListener mApartmentProfileFragmentListener;
 
     public ApartmentProfileFragment() {
         // Required empty public constructor
     }
 
-    public void setProfile(ApartmentProfile profile){
+    public void setProfile(ApartmentProfileEnriched profile){
         mProfile = profile;
     }
 
-    public void createFromApartmentProfile(ApartmentProfile apartmentProfile){
+    public void createFromApartmentProfile(ApartmentProfileEnriched apartmentProfile){
         // TODO: update to be null safe and make more abstract6
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_address)).setText(
                 "רחוב " + apartmentProfile.getStreet() + " " + apartmentProfile.getBuilding()
@@ -55,6 +62,56 @@ public class ApartmentProfileFragment extends Fragment {
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_number_text)).setText(
                 apartmentProfile.getApartment()
         );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_review_num_text)).setText(
+                "(" + apartmentProfile.getNumReviews() + " ביקורות)"
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_general_rating_num)).setText(
+                Double.toString(apartmentProfile.getGeneralRating())
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_apartment_holder_rating_num)).setText(
+                Double.toString(apartmentProfile.getApartmentHolderRating())
+        );
+        ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_apartment_holder_rating_progress)).setProgress(
+                (int)(apartmentProfile.getApartmentHolderRating() * 20.0)
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_maintenance_rating_num)).setText(
+                Double.toString(apartmentProfile.getMaintenanceRating())
+        );
+        ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_maintenance_rating_progress)).setProgress(
+                (int)(apartmentProfile.getApartmentHolderRating() * 20.0)
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_around_rating_num)).setText(
+                Double.toString(apartmentProfile.getAroundRating())
+        );
+        ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_around_rating_progress)).setProgress(
+                (int)(apartmentProfile.getApartmentHolderRating() * 20.0)
+        );
+
+        LinearLayout reviewsList = (LinearLayout) Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_review_container_constraint);
+        reviewsList.removeAllViews();
+        View currentView;
+        for(ApartmentReview currentReview : apartmentProfile.getReviews()){
+            currentView = getLayoutInflater().inflate(getResources().getLayout(R.layout.fragment_apartment_profile_review_shortcut), null);
+            ViewGroup.LayoutParams a = currentView.getLayoutParams();
+            currentView.setMinimumWidth(222);
+            currentView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mApartmentProfileFragmentListener != null) {
+                        String headerText = "רחוב " +
+                                mProfile.getStreet() +
+                                " " +
+                                mProfile.getBuilding() +
+                                ", דירה " +
+                                mProfile.getApartment() +
+                                ", קומה " +
+                                mProfile.getFloor();
+                        mApartmentProfileFragmentListener.onReviewClick(headerText, currentReview);
+                    }
+                }
+            });
+            reviewsList.addView(currentView);
+        }
 
     }
 
@@ -90,25 +147,6 @@ public class ApartmentProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         createFromApartmentProfile(mProfile);
-
-        // TODO: replace with more generic logic
-        View review = view.findViewById(R.id.review1);
-        review.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mApartmentProfileFragmentListener != null){
-                    String headerText = "רחוב " +
-                            mProfile.getStreet() +
-                            " " +
-                            mProfile.getBuilding() +
-                            ", דירה " +
-                            mProfile.getApartment() +
-                            ", קומה " +
-                            mProfile.getFloor();
-                    mApartmentProfileFragmentListener.onReviewClick(headerText);
-                }
-            }
-        });
     }
 
     @Override
@@ -136,6 +174,6 @@ public class ApartmentProfileFragment extends Fragment {
     }
 
     public interface ApartmentProfileFragmentListener{
-        void onReviewClick(String headerText);
+        void onReviewClick(String headerText, ApartmentReview review);
     }
 }
