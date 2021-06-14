@@ -23,7 +23,7 @@
             android:layout_marginTop="10dp"
             android:layoutDirection="rtl"
             android:background="@color/white"
-            app:tabIndicatorColor="@color/custom_green_1"
+            app:tabIndicatorColor="@color/custom_blue_1"
             app:tabSelectedTextColor="@color/black"
             app:tabTextColor="@color/black"
             app:tabMode="fixed">

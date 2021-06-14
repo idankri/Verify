@@ -76,8 +76,7 @@ public class ApartmentReviewContainerFragment extends Fragment {
                 new ApartmentReviewOverviewFragment(),
                 new ApartmentReviewProsConsFragment(),
                 new ApartmentReviewOpinionFragment(),
-                new ApartmentReviewBottomLineFragment(),
-                new ApartmentReviewAdditionalReviewsFragment()};
+                new ApartmentReviewBottomLineFragment()};
     }
 
     public void setReview(ApartmentReview review){

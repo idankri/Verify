@@ -5,9 +5,14 @@ import androidx.fragment.app.Fragment;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -22,6 +27,7 @@ import com.example.verify.fragments.BaseFragment;
 import com.example.verify.fragments.DummySearchFragment;
 import com.example.verify.fragments.IntroductionFragment;
 import com.example.verify.fragments.SearchFragment;
+import com.example.verify.fragments.SurveyFragment;
 import com.example.verify.utils.ActionBarWrapper;
 
 import java.util.Arrays;
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements
     private ApartmentProfileFragment mApartmentProfileFragment;
     private IntroductionFragment mIntroductionFragment;
     private ApartmentReviewContainerFragment mApartmentReviewContainerFragment;
+    private SurveyFragment mSurveyFragment;
     //private LottieAnimationView mLottieAnimationView;
 
 
@@ -55,6 +62,11 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.custom_blue_1));
+        }
         setContentView(R.layout.activity_main);
         // Set up action bar
         mActionBar = new ActionBarWrapper(this, getSupportActionBar());
@@ -66,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements
         mApartmentProfileFragment = new ApartmentProfileFragment();
         mIntroductionFragment = new IntroductionFragment();
         mApartmentReviewContainerFragment = new ApartmentReviewContainerFragment();
+        mSurveyFragment = new SurveyFragment();
 
         setUpNavBar();
 
@@ -148,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements
                     .commit();
         }
         catch(UnsupportedOperationException e){
-            super.onBackPressed();
+            //super.onBackPressed();
         }
 
     }
@@ -195,13 +208,23 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onSearchLogoClick() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        mMainActivityStateManager.pushFragmentState(FragmentState.Searching);
+        getSupportFragmentManager().
+                beginTransaction()
+                .replace(R.id.container_fragment, mSearchFragment)
+                .commit();
     }
 
     @Override
     public void onAddApartmentButtonClick() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.verify_form_url)));
-        startActivity(browserIntent);
+        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.verify_form_url)));
+        //startActivity(browserIntent);
+        mMainActivityStateManager.pushFragmentState(FragmentState.Survey);
+        getSupportFragmentManager().
+                beginTransaction()
+                .replace(R.id.container_fragment, mSurveyFragment)
+                .commit();
+        mSurveyFragment.loadWebView();
     }
 
     @Override
@@ -285,6 +308,10 @@ public class MainActivity extends AppCompatActivity implements
                 mActionBarWrapper.setUpReviewMode();
                 mNavbar.setVisibility(View.INVISIBLE);
             }
+            else if(fragmentState == FragmentState.Survey){
+                mActionBarWrapper.setActionBarVisibility(true);
+                mNavbar.setVisibility(View.INVISIBLE);
+            }
             if(mFragmentState == FragmentState.Review){
                 mActionBarWrapper.setUpRegularMode();
             }
@@ -337,6 +364,8 @@ public class MainActivity extends AppCompatActivity implements
                 return mApartmentProfileFragment;
             case Review:
                 return mApartmentReviewContainerFragment;
+            case Survey:
+                return mSurveyFragment;
             default:
                 throw new UnsupportedOperationException();
 
@@ -350,6 +379,7 @@ public class MainActivity extends AppCompatActivity implements
         Searching,
         AddApartment,
         Found,
-        Review
+        Review,
+        Survey
     }
 }

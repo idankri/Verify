@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="28dp"
             android:gravity="right|top"
             android:text="@string/more_reviews_title_prefix"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@id/more_reviews_title_prefix"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="6dp"
             android:gravity="right|top"
             android:text="@string/more_reviews_title_suffix_placeholder"
@@ -42,20 +42,28 @@
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="235dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/more_reviews_title_prefix"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="10dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:scrollbars="none">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp">
 
-                <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review1"/>
+                <include layout="@layout/fragment_apartment_profile_review_shortcut"
+                    android:id="@+id/review1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
 
-                <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review2"/>
+                <include layout="@layout/fragment_apartment_profile_review_shortcut"
+                    android:id="@+id/review2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </HorizontalScrollView>
