@@ -8,10 +8,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/apartment_review_bottom_line_container"
-        android:elevation="1dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/edit_text_background">
+        android:id="@+id/apartment_review_bottom_line_container">
 
         <TextView
             android:id="@+id/bottom_line_title"
@@ -134,20 +131,11 @@
             android:textAppearance="@style/apartment_review_opinion_bold_titles" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/apartment_review_missing_information_container"
+    <include layout="@layout/fragment_apartment_review_missing_information"
         android:layout_below="@+id/apartment_review_bottom_line_container"
-        android:elevation="1dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/edit_text_background">
-
-        <include layout="@layout/fragment_apartment_review_missing_information"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-
-    </RelativeLayout>
+        android:id="@+id/apartment_review_missing_information_container"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
 
 
 

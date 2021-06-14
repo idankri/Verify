@@ -14,6 +14,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.verify.R;
 import com.example.verify.components.ApartmentProfile;
 import com.example.verify.components.ApartmentProfileEnriched;
+import com.example.verify.components.ApartmentReview;
 import com.example.verify.fragments.AddApartmentFragment;
 import com.example.verify.fragments.ApartmentProfileFragment;
 import com.example.verify.fragments.ApartmentReviewContainerFragment;
@@ -214,8 +215,9 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onReviewClick(String headerText) {
+    public void onReviewClick(String headerText, ApartmentReview review) {
         mMainActivityStateManager.pushFragmentState(FragmentState.Review);
+        mApartmentReviewContainerFragment.setReview(review);
         getSupportFragmentManager().
                 beginTransaction()
                 .replace(R.id.container_fragment, mApartmentReviewContainerFragment)
