@@ -213,12 +213,13 @@ public class ApartmentReviewProsConsFragment extends Fragment {
                 if (text != null) {
                     text.setTypeface(null, Typeface.BOLD);
                 }
-                if(mTabLayout.getSelectedTabPosition() == 0){
-                    mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#1AD769"));
-                }
-                else{
-                    mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#EB5757"));
-                }
+                // Uncomment for colors underline in tabs
+//                if(mTabLayout.getSelectedTabPosition() == 0){
+//                    mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#1AD769"));
+//                }
+//                else{
+//                    mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#EB5757"));
+//                }
 
 
             }

@@ -135,6 +135,14 @@
         android:layout_below="@+id/apartment_review_bottom_line_container"
         android:id="@+id/apartment_review_missing_information_container"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:layout_width="wrap_content" />
+
+    <include layout="@layout/fragment_apartment_review_more_reviews"
+        android:layout_below="@+id/apartment_review_missing_information_container"
+        android:id="@+id/apartment_review_more_reviews_container"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
         android:layout_width="wrap_content" />
 
 

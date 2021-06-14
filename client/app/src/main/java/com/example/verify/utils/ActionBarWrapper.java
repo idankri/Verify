@@ -47,6 +47,13 @@ public class ActionBarWrapper {
                 mListener.onBackArrowLogoClick();
             }
         });
+
+        mActionBar.getCustomView().findViewById(R.id.search_logo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onSearchLogoClick();
+            }
+        });
     }
 
     public void setUpReviewMode(){

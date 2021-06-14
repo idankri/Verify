@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:elevation="1dp"
         android:layout_margin="10dp"
-        android:background="@drawable/edit_text_background">
+        android:background="@drawable/edit_text_background"
+        >
         <TextView
             android:id="@+id/review_opinion_title"
             android:layout_width="wrap_content"
@@ -22,7 +23,17 @@
             android:text="@string/apartment_review_opinion_title"
             android:textAppearance="@style/apartment_review_opinion_bold_titles"
             android:gravity="right|top"
+            android:textStyle="bold"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/review_opinion_title"
+            android:layout_alignTop="@+id/review_opinion_title"
+            android:text="@string/apartment_review_opinion_count_placeholder"
+            android:textAppearance="@style/apartment_review_opinion_bold_titles"
+            android:layout_marginEnd="5dp" />
 
         <include
             android:id="@+id/opinion1"
