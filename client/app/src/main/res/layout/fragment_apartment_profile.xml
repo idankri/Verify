@@ -283,6 +283,7 @@
     </RelativeLayout>
 
     <HorizontalScrollView
+        android:id="@+id/apartment_profile_reviews_container"
         android:layout_width="match_parent"
         android:layout_height="224dp"
         android:layout_below="@+id/apartment_general_ratings"
@@ -290,15 +291,15 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="28dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/apartment_profile_review_container_constraint">
 
-            <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review1"/>
 
-            <include layout="@layout/fragment_apartment_profile_review_shortcut" android:id="@+id/review2"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </HorizontalScrollView>
 
 </RelativeLayout>

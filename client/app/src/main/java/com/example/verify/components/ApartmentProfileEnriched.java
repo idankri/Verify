@@ -13,6 +13,9 @@ public class ApartmentProfileEnriched extends ApartmentProfile {
     public ApartmentProfileEnriched(String city, String street, String building, String floor, String apartment) {
         super(city, street, building, floor, apartment);
         mReviews = new ArrayList<>();
+        mReviews.add(new ApartmentReview());
+        mReviews.add(new ApartmentReview());
+        mReviews.add(new ApartmentReview());
         mGeneralRating = 2.5;
         mApartmentHolderRating = 2.5;
         mMaintenanceRating = 2.5;
@@ -43,5 +46,18 @@ public class ApartmentProfileEnriched extends ApartmentProfile {
 
     public double getAroundRating(){
         return mAroundRating;
+    }
+
+    public int getNumReviews(){
+        return mReviews.size();
+    }
+
+    public List<ApartmentReview> getReviews(){
+        return mReviews;
+    }
+
+    public static ApartmentProfileEnriched fromJson(){
+        // TODO: parse JSON and create reviews from JSON
+        return null;
     }
 }

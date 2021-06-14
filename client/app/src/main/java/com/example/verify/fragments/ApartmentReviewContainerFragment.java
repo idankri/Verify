@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.verify.R;
+import com.example.verify.components.ApartmentReview;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
@@ -26,6 +27,7 @@ import java.util.Objects;
  * create an instance of this fragment.
  */
 public class ApartmentReviewContainerFragment extends Fragment {
+    private ApartmentReview mReview;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,7 +76,12 @@ public class ApartmentReviewContainerFragment extends Fragment {
                 new ApartmentReviewOverviewFragment(),
                 new ApartmentReviewProsConsFragment(),
                 new ApartmentReviewOpinionFragment(),
-                new ApartmentReviewBottomLineFragment()};
+                new ApartmentReviewBottomLineFragment(),
+                new ApartmentReviewAdditionalReviewsFragment()};
+    }
+
+    public void setReview(ApartmentReview review){
+        mReview = review;
     }
 
     @Override
@@ -91,9 +98,9 @@ public class ApartmentReviewContainerFragment extends Fragment {
         mPager =  Objects.requireNonNull(getView()).findViewById(R.id.apartment_review_view_pager);
         mTabLayout = Objects.requireNonNull(getView()).findViewById(R.id.apartment_review_tab_layout);
         mPager.setAdapter(new ScreenSlidePagerAdapter(getActivity(), mInternalFragments));
-        mPager.setOffscreenPageLimit(10);
-        //mPager.setClipToPadding(false);
-        //mPager.setPadding(0,0,0,50);
+        mPager.setOffscreenPageLimit(20);
+        mPager.setClipToPadding(true);
+        //mPager.setPadding(0,0,0,-200);
         //mPager.setPageTransformer(new Transformer);
         //mPager.setPageTransformer(((page, position) -> {
          //   page.setTranslationY(position * -(2 * 50 + 50));
@@ -138,6 +145,13 @@ public class ApartmentReviewContainerFragment extends Fragment {
                 mTabLayout.selectTab(mTabLayout.getTabAt(position));
             }
         });
+
+        createFromReview(mReview);
+    }
+
+    private void createFromReview(ApartmentReview review){
+        // TODO: uncomment when connected to DB
+
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
