@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.example.verify.R;
 import com.example.verify.components.ApartmentProfile;
+import com.example.verify.components.ApartmentProfileEnriched;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 import java.util.Objects;
 
@@ -33,18 +35,18 @@ public class ApartmentProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ApartmentProfile mProfile;
+    private ApartmentProfileEnriched mProfile;
     private ApartmentProfileFragmentListener mApartmentProfileFragmentListener;
 
     public ApartmentProfileFragment() {
         // Required empty public constructor
     }
 
-    public void setProfile(ApartmentProfile profile){
+    public void setProfile(ApartmentProfileEnriched profile){
         mProfile = profile;
     }
 
-    public void createFromApartmentProfile(ApartmentProfile apartmentProfile){
+    public void createFromApartmentProfile(ApartmentProfileEnriched apartmentProfile){
         // TODO: update to be null safe and make more abstract6
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_address)).setText(
                 "רחוב " + apartmentProfile.getStreet() + " " + apartmentProfile.getBuilding()
@@ -54,6 +56,27 @@ public class ApartmentProfileFragment extends Fragment {
         );
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_number_text)).setText(
                 apartmentProfile.getApartment()
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_general_rating_num)).setText(
+                Double.toString(apartmentProfile.getGeneralRating())
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_apartment_holder_rating_num)).setText(
+                Double.toString(apartmentProfile.getApartmentHolderRating())
+        );
+        ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_apartment_holder_rating_progress)).setProgress(
+                (int)(apartmentProfile.getApartmentHolderRating() * 20)
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_maintenance_rating_num)).setText(
+                Double.toString(apartmentProfile.getMaintenanceRating())
+        );
+        ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_maintenance_rating_progress)).setProgress(
+                (int)(apartmentProfile.getApartmentHolderRating() * 20)
+        );
+        ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_around_rating_num)).setText(
+                Double.toString(apartmentProfile.getAroundRating())
+        );
+        ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_around_rating_progress)).setProgress(
+                (int)(apartmentProfile.getApartmentHolderRating() * 20)
         );
 
     }

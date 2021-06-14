@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.verify.R;
 import com.example.verify.components.ApartmentProfile;
+import com.example.verify.components.ApartmentProfileEnriched;
 import com.example.verify.fragments.AddApartmentFragment;
 import com.example.verify.fragments.ApartmentProfileFragment;
 import com.example.verify.fragments.ApartmentReviewContainerFragment;
@@ -169,7 +170,10 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onSearchButtonClick() {
         ApartmentProfile profile = mSearchFragment.collectApartmentProfile();
-        mApartmentProfileFragment.setProfile(profile);
+        // TODO: Enrich profile from database
+        ApartmentProfileEnriched enrichedProfile = ApartmentProfileEnriched.fromApartmentProfile(profile);
+
+        mApartmentProfileFragment.setProfile(enrichedProfile);
         getSupportFragmentManager().
                 beginTransaction()
                 .replace(R.id.container_fragment, mApartmentProfileFragment)
