@@ -5,22 +5,33 @@ import java.util.List;
 
 public class ApartmentProfileEnriched extends ApartmentProfile {
     private List<ApartmentReview> mReviews;
-    private final double mGeneralRating;
-    private final double mApartmentHolderRating;
-    private final double mMaintenanceRating;
-    private final double mAroundRating;
+    private double mGeneralRating;
+    private double mLandlordRating;
+    private double mMaintenanceRating;
+    private double mAroundRating;
 
     public ApartmentProfileEnriched(String city, String street, int building, int floor, int apartment,
                                     List<ApartmentReview> reviews) {
         super(city, street, building, floor, apartment);
         mReviews = reviews;
 
-        // TODO: iterate list and use calculate method for average
-        mApartmentHolderRating = 2.5;
-        mMaintenanceRating = 2.5;
-        mAroundRating = 2.5;
+        int numOfReviews = mReviews.size();
 
-        mGeneralRating = calculateAverage(new double[]{mApartmentHolderRating, mAroundRating, mMaintenanceRating});
+        double[] aroundRatings = new double[numOfReviews];
+        double[] maintenanceRatings = new double[numOfReviews];
+        double[] landlordRatings = new double[numOfReviews];
+
+        for (int i=0; i<numOfReviews; i++) {
+            aroundRatings[i] = mReviews.get(i).getAroundRating();
+            maintenanceRatings[i] = mReviews.get(i).getMaintenanceRating();
+            landlordRatings[i] = mReviews.get(i).getLandlordRating();
+        }
+
+        mLandlordRating = ApartmentReview.calculateAverage(landlordRatings);
+        mMaintenanceRating = ApartmentReview.calculateAverage((maintenanceRatings));
+        mAroundRating = ApartmentReview.calculateAverage(aroundRatings);
+
+        mGeneralRating = ApartmentReview.calculateAverage(new double[]{mLandlordRating, mAroundRating, mMaintenanceRating});
     }
 
     /* (why is this necessary?) for debug purposes*/
@@ -35,22 +46,13 @@ public class ApartmentProfileEnriched extends ApartmentProfile {
     }
 
 
-    private static double calculateAverage(double[] ratings){
-        double sum = 0;
-
-        for(int i=0; i<ratings.length; i++){
-            sum += ratings[i];
-        }
-
-        return sum/ratings.length;
-    }
 
     public double getGeneralRating(){
         return mGeneralRating;
     }
 
     public double getApartmentHolderRating(){
-        return mApartmentHolderRating;
+        return mLandlordRating;
     }
 
     public double getMaintenanceRating(){
