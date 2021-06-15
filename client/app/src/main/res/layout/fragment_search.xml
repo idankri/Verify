@@ -195,6 +195,16 @@
         android:textColor="@color/white"
         android:elevation="10dp" />
 
+    <TextView
+        android:id="@+id/invalid_search_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/custom_red_1"
+        android:text="@string/invalid_search_message"
+        android:layout_below="@+id/main_search_button"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
 
 
 

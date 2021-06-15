@@ -19,6 +19,7 @@
     <string name="apartment_field_title">דירה</string>
     <string name="search_button_text">חיפוש</string>
     <string name="add_opinion_text">הוספת חוות דעת</string>
+    <string name="invalid_search_message">לא מצאנו את הדירה שביקשת :(</string>
 
     <string name="apartment_profile_address_placeholder">רחוב לורם איפסום 27, באר שבע</string>
     <string name="apartment_profile_apartment">דירה</string>
