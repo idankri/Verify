@@ -1,15 +1,17 @@
 package com.example.verify.components;
 
-import android.content.Context;
-import android.view.View;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Dictionary;
 import java.util.List;
 
 public class ApartmentReview {
-    public TenantType TenantType;
+
+    // TODO: change fields to private and create getters
+    public TenantType tenantType;
+    public String StayingPeriod;
     public String EntryDate;
     public String LeaveDate;
 
@@ -34,6 +36,7 @@ public class ApartmentReview {
 
     public ApartmentReview(
             TenantType tenantType,
+            String stayingPeriod,
             String entryDate,
             String leaveDate,
             double generalRating,
@@ -48,7 +51,8 @@ public class ApartmentReview {
             List<String> aroundCons,
             Dictionary<TextReviewCategory, String> textualReviews
             ){
-        TenantType = tenantType;
+        this.tenantType = tenantType;
+        StayingPeriod = stayingPeriod;
         EntryDate = entryDate;
         LeaveDate = leaveDate;
         GeneralRating = generalRating;
@@ -64,8 +68,98 @@ public class ApartmentReview {
         TextualReviews = textualReviews;
     }
 
-    public static ApartmentReview fromJson(){
-        // TODO: parse JSON
-        return null;
+    public static ApartmentReview fromJson(JSONObject json) throws JSONException{
+
+        boolean isStillLiving = json.getBoolean("Still living in the apartment");
+
+        String city = json.getString("City");
+        String addressAndNumber = json.getString("Address and number");
+        int floor = json.getInt("Floor");
+        int apartmentNumber = json.getInt("Apartment number");;
+        String tenantsComposition;
+        int landlordRating;
+        JSONArray landlordTags;
+        int maintenanceRating;
+        int aroundRating;
+        JSONObject aroundTags;
+        JSONObject maintenanceTags;
+        JSONArray picturesDetails;
+
+        // TODO: complete all calculations and adaptations
+
+        TenantType tenantType = enumerateTenantType(json.getString("Tenants composition"));
+        String stayingPeriod = json.getString("Staying period");
+        String enterDate = dateParser(json.getString("Enter date"));
+        String exitDate = dateParser(json.getString("Exit date"));
+
+        return new ApartmentReview();
+    }
+
+    private static String dateParser(String date){
+        String year = date.substring(0,3);
+        String month = date.substring(5,6);
+        String wordMonth = "";
+
+        switch(month){
+            case "01":
+                wordMonth = "ינואר";
+                break;
+            case "02":
+                wordMonth = "פברואר";
+                break;
+            case "03":
+                wordMonth = "מרץ";
+                break;
+            case "04":
+                wordMonth = "אפריל";
+                break;
+            case "05":
+                wordMonth = "מאי";
+                break;
+            case "06":
+                wordMonth = "יוני";
+                break;
+            case "07":
+                wordMonth = "יולי";
+                break;
+            case "08":
+                wordMonth = "אוגוסט";
+                break;
+            case "09":
+                wordMonth = "ספטמבר";
+                break;
+            case "10":
+                wordMonth = "אוקטובר";
+                break;
+            case "11":
+                wordMonth = "נובמבר";
+                break;
+            case "12":
+                wordMonth = "דצמבר";
+                break;
+        }
+
+        return wordMonth + " " + year;
+    }
+
+    private static TenantType enumerateTenantType(String tenantsComposition){
+        TenantType result = TenantType.Single;
+
+        switch(tenantsComposition){
+            case "דייר/ת יחיד/ה":
+                result = TenantType.Single;
+                break;
+            case "זוג":
+                result = TenantType.Couple;
+                break;
+            case "שותפים/שותפות":
+                result = TenantType.Roommates;
+                break;
+            case "משפחה":
+                result = TenantType.Family;
+                break;
+        }
+
+        return result;
     }
 }
