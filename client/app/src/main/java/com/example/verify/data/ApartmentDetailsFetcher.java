@@ -33,9 +33,13 @@ public class ApartmentDetailsFetcher {
             this.isError = isError;
             this.profile = profile;
         }
+
+        public boolean hasError(){ return isError;}
+
+        public ApartmentProfileEnriched getProfile(){ return profile; }
     }
 
-    public interface IZoneResponseListener {
+    public interface IApartmentDetailsResponseListener {
         public void onResponse(ApartmentDetailsResponse response);
     }
 
@@ -48,7 +52,7 @@ public class ApartmentDetailsFetcher {
     }
 
     public void dispatchRequest(final String city, final String streetAddress, final int streetNumber,
-                                final int floor, final int apartment, final IZoneResponseListener listener){
+                                final int floor, final int apartment, final IApartmentDetailsResponseListener listener){
         JSONObject requestBody = new JSONObject();
         try {
             requestBody.put("city", city);
