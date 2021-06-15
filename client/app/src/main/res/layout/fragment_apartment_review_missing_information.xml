@@ -10,7 +10,7 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="28dp"
         android:background="@drawable/ic_question_mark_outline_in_a_circle"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@id/question_mark_icon"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:gravity="right|top"
         android:text="@string/missing_information_title"
@@ -34,7 +34,7 @@
         android:layout_height="24dp"
         android:layout_below="@+id/missing_information_title"
         android:layout_alignEnd="@+id/missing_information_title"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/ic_rectangle_yes_or_no" />
@@ -60,7 +60,7 @@
         android:layout_below="@id/missing_information_title"
         android:layout_alignEnd="@+id/red_circle"
         android:layout_toLeftOf="@id/right_vote_rectangle"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="6dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ic_rectangle_yes_or_no" />
 

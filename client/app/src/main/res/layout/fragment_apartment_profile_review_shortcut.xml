@@ -12,7 +12,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/reviewX"
     android:layout_width="222dp"
-    android:layout_height="224dp"
+    android:layout_height="204dp"
     android:layout_marginEnd="30dp"
     android:layout_marginStart="5dp"
     android:layout_marginBottom="5dp"
@@ -28,20 +28,20 @@
     <ImageView
         android:id="@+id/review_shortcut_pic"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
+        android:layout_height="61dp"
         android:layout_alignParentTop="true"
         app:srcCompat="@color/light_grey_background" />
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="81dp"
+        android:layout_height="61dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/ic_rectangle_435" />
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="81dp"
+        android:layout_height="61dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/ic_single_tenant_image" />
