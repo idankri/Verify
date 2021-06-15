@@ -67,7 +67,7 @@ public class ApartmentDetailsFetcher {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            ApartmentReview review = ApartmentReview.fromJson(response);
+                            ApartmentReview review = new ApartmentReview(response);
                             List<ApartmentReview> reviewsList = new ArrayList<>();
                             reviewsList.add(review);
 
