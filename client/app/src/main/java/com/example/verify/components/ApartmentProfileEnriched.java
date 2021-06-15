@@ -1,6 +1,5 @@
 package com.example.verify.components;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ApartmentProfileEnriched extends ApartmentProfile {
@@ -10,19 +9,20 @@ public class ApartmentProfileEnriched extends ApartmentProfile {
     private final double mMaintenanceRating;
     private final double mAroundRating;
 
-    public ApartmentProfileEnriched(String city, String street, String building, String floor, String apartment) {
+    public ApartmentProfileEnriched(String city, String street, int building, int floor, int apartment,
+                                    List<ApartmentReview> reviews) {
         super(city, street, building, floor, apartment);
-        mReviews = new ArrayList<>();
-        mReviews.add(new ApartmentReview());
-        mReviews.add(new ApartmentReview());
-        mReviews.add(new ApartmentReview());
-        mGeneralRating = 2.5;
+        mReviews = reviews;
+
+        // TODO: iterate list and use calculate method for average
         mApartmentHolderRating = 2.5;
         mMaintenanceRating = 2.5;
         mAroundRating = 2.5;
+
+        mGeneralRating = calculateAverage(new double[]{mApartmentHolderRating, mAroundRating, mMaintenanceRating});
     }
 
-
+    /* (why is this necessary?)
     public static ApartmentProfileEnriched fromApartmentProfile(ApartmentProfile profile){
         return new ApartmentProfileEnriched(
                 profile.getCity(),
@@ -30,6 +30,17 @@ public class ApartmentProfileEnriched extends ApartmentProfile {
                 profile.getBuilding(),
                 profile.getFloor(),
                 profile.getApartment());
+    }
+     */
+
+    private static double calculateAverage(double[] ratings){
+        double sum = 0;
+
+        for(int i=0; i<ratings.length; i++){
+            sum += ratings[i];
+        }
+
+        return sum/ratings.length;
     }
 
     public double getGeneralRating(){
@@ -54,10 +65,5 @@ public class ApartmentProfileEnriched extends ApartmentProfile {
 
     public List<ApartmentReview> getReviews(){
         return mReviews;
-    }
-
-    public static ApartmentProfileEnriched fromJson(){
-        // TODO: parse JSON and create reviews from JSON
-        return null;
     }
 }

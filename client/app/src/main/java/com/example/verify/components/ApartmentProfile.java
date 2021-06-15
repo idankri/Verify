@@ -3,11 +3,11 @@ package com.example.verify.components;
 public class ApartmentProfile {
     private String mCity;
     private String mStreet;
-    private String mBuilding;
-    private String mFloor;
-    private String mApartment;
+    private int mBuilding;
+    private int mFloor;
+    private int mApartment;
 
-    public ApartmentProfile(String city, String street, String building, String floor, String apartment){
+    public ApartmentProfile(String city, String street, int building, int floor, int apartment){
         mCity = city;
         mStreet = street;
         mBuilding = building;
@@ -23,15 +23,15 @@ public class ApartmentProfile {
         return mStreet;
     }
 
-    public String getBuilding(){
+    public int getBuilding(){
         return mBuilding;
     }
 
-    public String getFloor(){
+    public int getFloor(){
         return mFloor;
     }
 
-    public String getApartment(){
+    public int getApartment(){
         return mApartment;
     }
 
