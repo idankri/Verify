@@ -1,14 +1,28 @@
 package com.example.verify.fragments;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 
 import com.example.verify.R;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,4 +77,22 @@ public class ApartmentReviewOverviewFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_apartment_review_overview, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        try {
+            URL url = new URL("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464");
+            final ImageSwitcher _ImageSwitcher = ((ImageSwitcher) Objects.requireNonNull(getView()).findViewById(R.id.apartment_review_image_switcher));
+            _ImageSwitcher.setFactory((android.widget.ViewSwitcher.ViewFactory) getContext());
+            _ImageSwitcher.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeStream(url.openConnection().getInputStream())));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }

@@ -109,9 +109,9 @@ public class SearchFragment extends BaseFragment {
         return new ApartmentProfile(
                 ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.city_field)).getText().toString(),
                 ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.street_field)).getText().toString(),
-                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.building_field)).getText().toString(),
-                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.floor_field)).getText().toString(),
-                ((EditText)Objects.requireNonNull(getView()).findViewById(R.id.apartment_field)).getText().toString()
+                Integer.parseInt(((EditText)Objects.requireNonNull(getView()).findViewById(R.id.building_field)).getText().toString()),
+                Integer.parseInt((((EditText)Objects.requireNonNull(getView()).findViewById(R.id.floor_field)).getText().toString())),
+                Integer.parseInt(((EditText)Objects.requireNonNull(getView()).findViewById(R.id.apartment_field)).getText().toString())
         );
     }
 

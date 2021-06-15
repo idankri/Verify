@@ -115,12 +115,21 @@
             android:textFontWeight="300" />
     </RelativeLayout>
 
+    <ImageSwitcher
+        android:id="@+id/apartment_review_image_switcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/apartment_review_entry_date_container">
+    </ImageSwitcher>
+
     <RelativeLayout
         android:layout_width="360dp"
         android:layout_height="224dp"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="130dp"
+        android:layout_below="@+id/apartment_review_image_switcher"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="3dp"
         android:layout_marginEnd="3dp"
         android:background="@drawable/edit_text_background"

@@ -1,5 +1,6 @@
 package com.example.verify.components;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApartmentProfileEnriched extends ApartmentProfile {
@@ -22,16 +23,17 @@ public class ApartmentProfileEnriched extends ApartmentProfile {
         mGeneralRating = calculateAverage(new double[]{mApartmentHolderRating, mAroundRating, mMaintenanceRating});
     }
 
-    /* (why is this necessary?)
+    /* (why is this necessary?) for debug purposes*/
     public static ApartmentProfileEnriched fromApartmentProfile(ApartmentProfile profile){
         return new ApartmentProfileEnriched(
                 profile.getCity(),
                 profile.getStreet(),
                 profile.getBuilding(),
                 profile.getFloor(),
-                profile.getApartment());
+                profile.getApartment(),
+                new ArrayList<ApartmentReview>());
     }
-     */
+
 
     private static double calculateAverage(double[] ratings){
         double sum = 0;
