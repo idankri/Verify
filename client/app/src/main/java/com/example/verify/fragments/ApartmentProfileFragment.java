@@ -2,24 +2,21 @@ package com.example.verify.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.verify.R;
-import com.example.verify.components.ApartmentProfile;
 import com.example.verify.components.ApartmentProfileEnriched;
 import com.example.verify.components.ApartmentReview;
+import com.example.verify.data.ApartmentDetailsFetcher;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 import java.util.Objects;
@@ -175,5 +172,24 @@ public class ApartmentProfileFragment extends Fragment {
 
     public interface ApartmentProfileFragmentListener{
         void onReviewClick(String headerText, ApartmentReview review);
+    }
+
+    public void fetchApartmentDetails(String city, String streetAddress, int streetNumber,
+                                      int floor, int apartment) {
+
+        final ApartmentDetailsFetcher fetcher = new ApartmentDetailsFetcher(getContext());
+
+        // server request
+        fetcher.dispatchRequest(city, streetAddress, streetNumber, floor, apartment, new ApartmentDetailsFetcher.IApartmentDetailsResponseListener() {
+            @Override
+            public void onResponse(ApartmentDetailsFetcher.ApartmentDetailsResponse response) {
+                if(response.hasError()){
+                    Log.e("ApartmentProfileFragment", "Error fetching details from server");
+                }else{
+                    Log.d("ApartmentProfileFragment", "Succeeded to fetch details from server");
+                    setProfile(response.getProfile());
+                }
+            }
+        });
     }
 }
