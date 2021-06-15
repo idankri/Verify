@@ -1,34 +1,35 @@
 package com.example.verify.components;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Dictionary;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ApartmentReview {
+    private String mReviewId;
+    private TenantType mTenantType;
+    private String mTenantsComposition;
+    private String mStayingPeriod;
+    private String mEntryDate;
+    private String mLeaveDate;
 
-    // TODO: change fields to private and create getters
-    public TenantType tenantType;
-    public String StayingPeriod;
-    public String EntryDate;
-    public String LeaveDate;
+    private double mGeneralRating;
+    private int mLandlordRating;
+    private int mMaintenanceRating;
+    private int mAroundRating;
 
-    public double GeneralRating;
-    public double ApartmentHolderRating;
-    public double MaintenanceRating;
-    public double AroundRating;
+    private List<String> mLandlordPros;
+    private List<String> mMaintenancePros;
+    private List<String> mAroundPros;
 
-    public List<String> ApartmentHolderPros;
-    public List<String> MaintenancePros;
-    public List<String> AroundPros;
+    private List<String> mLandlordCons;
+    private List<String> mMaintenanceCons;
+    private List<String> mAroundCons;
 
-    public List<String> ApartmentHolderCons;
-    public List<String> MaintenanceCons;
-    public List<String> AroundCons;
-
-    public Dictionary<TextReviewCategory, String> TextualReviews;
+    private Map<TextReviewCategory, String> mTextualReviews;
 
     public ApartmentReview(){
 
@@ -36,64 +37,106 @@ public class ApartmentReview {
 
     public ApartmentReview(
             TenantType tenantType,
+            String reviewId,
+            String tenantsComposition,
             String stayingPeriod,
             String entryDate,
             String leaveDate,
             double generalRating,
-            double apartmentHolderRating,
-            double maintenanceRating,
-            double aroundRating,
-            List<String> apartmentHolderPros,
+            int landlordRating,
+            int maintenanceRating,
+            int aroundRating,
+            List<String>landlordPros,
             List<String> maintenancePros,
             List<String> aroundPros,
-            List<String> apartmentHolderCons,
+            List<String> landlordCons,
             List<String> maintenanceCons,
             List<String> aroundCons,
-            Dictionary<TextReviewCategory, String> textualReviews
+            Map<TextReviewCategory, String> textualReviews
             ){
-        this.tenantType = tenantType;
-        StayingPeriod = stayingPeriod;
-        EntryDate = entryDate;
-        LeaveDate = leaveDate;
-        GeneralRating = generalRating;
-        ApartmentHolderRating = apartmentHolderRating;
-        MaintenanceRating = maintenanceRating;
-        AroundRating = aroundRating;
-        ApartmentHolderPros = apartmentHolderPros;
-        MaintenancePros = maintenancePros;
-        AroundPros = aroundPros;
-        ApartmentHolderCons = apartmentHolderCons;
-        MaintenanceCons = maintenanceCons;
-        AroundCons = aroundCons;
-        TextualReviews = textualReviews;
+        mTenantType = tenantType;
+        mReviewId = reviewId;
+        mTenantsComposition = tenantsComposition;
+        mStayingPeriod = stayingPeriod;
+        mEntryDate = entryDate;
+        mLeaveDate = leaveDate;
+        mGeneralRating = generalRating;
+        mLandlordRating = landlordRating;
+        mMaintenanceRating = maintenanceRating;
+        mAroundRating = aroundRating;
+        mLandlordPros = landlordPros;
+        mMaintenancePros = maintenancePros;
+        mAroundPros = aroundPros;
+        mLandlordCons = landlordCons;
+        mMaintenanceCons = maintenanceCons;
+        mAroundCons = aroundCons;
+        mTextualReviews = textualReviews;
     }
 
-    public static ApartmentReview fromJson(JSONObject json) throws JSONException{
+    public ApartmentReview(JSONObject json) throws JSONException{
 
         boolean isStillLiving = json.getBoolean("Still living in the apartment");
+        mLeaveDate = isStillLiving ? "עדיין שם" : dateParser(json.getString("Exit date"));
 
-        String city = json.getString("City");
-        String addressAndNumber = json.getString("Address and number");
-        int floor = json.getInt("Floor");
-        int apartmentNumber = json.getInt("Apartment number");;
-        String tenantsComposition;
-        int landlordRating;
-        JSONArray landlordTags;
-        int maintenanceRating;
-        int aroundRating;
-        JSONObject aroundTags;
-        JSONObject maintenanceTags;
-        JSONArray picturesDetails;
+        mReviewId = json.getString("Id");
+        mTenantsComposition = json.getString("Tenants composition");
+        mTenantType = enumerateTenantType(mTenantsComposition);
+        mStayingPeriod = json.getString("Staying period");
+        mEntryDate = dateParser(json.getString("Enter date"));
 
-        // TODO: complete all calculations and adaptations
+        mLandlordRating = json.getInt("Landlord rating");
+        mMaintenanceRating = json.getInt("Maintenance rating");
+        mAroundRating = json.getInt("Around rating");
+        mGeneralRating = calculateAverage(new double[]{mLandlordRating, mAroundRating, mMaintenanceRating});
 
-        TenantType tenantType = enumerateTenantType(json.getString("Tenants composition"));
-        String stayingPeriod = json.getString("Staying period");
-        String enterDate = dateParser(json.getString("Enter date"));
-        String exitDate = dateParser(json.getString("Exit date"));
 
-        return new ApartmentReview();
+        // TODO: Complete all of the following fields:
+
+        mLandlordPros = new ArrayList<String>();
+        mMaintenancePros = new ArrayList<String>();
+        mAroundPros = new ArrayList<String>();
+
+        mLandlordCons = new ArrayList<String>();
+        mMaintenanceCons = new ArrayList<String>();
+        mAroundCons = new ArrayList<String>();
+
+        mTextualReviews = new HashMap<TextReviewCategory, String>();
     }
+
+    public String getReviewId(){ return mReviewId; }
+
+    public TenantType getTenantType(){ return mTenantType; }
+
+    public String getTenantsComposition(){ return mTenantsComposition; }
+
+    public String getStayingPeriod(){ return mStayingPeriod; }
+
+    public String getEntryDate(){ return mEntryDate; }
+
+    public String getLeaveDate(){ return mLeaveDate; }
+
+    public double getGeneralRating(){ return mGeneralRating; }
+
+    public int getLandlordRating(){ return mLandlordRating; }
+
+    public int getMaintenanceRating(){ return mMaintenanceRating; }
+
+    public int getAroundRating(){ return mAroundRating; }
+
+    public List<String> getLandlordPros(){ return mLandlordPros; }
+
+    public List<String> getLandlordCons(){ return mLandlordCons; }
+
+    public List<String> getMaintenancePros(){ return mMaintenancePros; }
+
+    public List<String> getMaintenanceCons(){ return mMaintenanceCons; }
+
+    public List<String> getAroundPros(){ return mAroundPros; }
+
+    public List<String> getAroundCons(){ return mAroundCons; }
+
+    public Map<TextReviewCategory, String> getTextualReviews(){ return mTextualReviews; }
+
 
     private static String dateParser(String date){
         String year = date.substring(0,3);
@@ -140,6 +183,16 @@ public class ApartmentReview {
         }
 
         return wordMonth + " " + year;
+    }
+
+    public static double calculateAverage(double[] ratings){
+        double sum = 0;
+
+        for(int i=0; i<ratings.length; i++){
+            sum += ratings[i];
+        }
+
+        return sum/ratings.length;
     }
 
     private static TenantType enumerateTenantType(String tenantsComposition){
