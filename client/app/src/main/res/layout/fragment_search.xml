@@ -60,7 +60,7 @@
         android:paddingBottom="5dp"
         android:autofillHints=""
         android:textColor="@color/black"
-        android:text="באר שבע"
+        android:text="יהוד-מונוסון"
         android:inputType="text" />
 
     <TextView
@@ -89,7 +89,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
-        android:text="מונטיפיורי"
+        android:text="מוהליבר"
         android:textColor="@color/black"
         android:inputType="text" />
 
@@ -119,7 +119,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
-        android:text="15"
+        android:text="42"
         android:textColor="@color/black"
         android:inputType="number" />
 
@@ -149,7 +149,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
-        android:text="5"
+        android:text="2"
         android:textColor="@color/black"
         android:inputType="number" />
 
@@ -179,7 +179,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:autofillHints=""
-        android:text="24"
+        android:text="7"
         android:textColor="@color/black"
         android:inputType="number" />
 

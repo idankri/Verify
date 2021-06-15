@@ -174,6 +174,7 @@ public class ApartmentProfileFragment extends Fragment {
         void onReviewClick(String headerText, ApartmentReview review);
     }
 
+    /*
     public void fetchApartmentDetails(String city, String streetAddress, int streetNumber,
                                       int floor, int apartment) {
 
@@ -191,5 +192,5 @@ public class ApartmentProfileFragment extends Fragment {
                 }
             }
         });
-    }
+    }*/
 }

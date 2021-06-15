@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ import java.util.List;
  */
 public class ApartmentDetailsFetcher {
     private RequestQueue _queue;
-    private String REQUEST_URL = "http://localhost:3000/review/";
+    private String REQUEST_URL = "http://192.168.43.132:3000/review/";
 
     public class ApartmentDetailsResponse {
         private boolean isError;
@@ -66,7 +67,7 @@ public class ApartmentDetailsFetcher {
             return;
         }
 
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, REQUEST_URL, requestBody,
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, REQUEST_URL, requestBody,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
