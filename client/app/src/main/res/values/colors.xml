@@ -13,4 +13,5 @@
     <color name="light_grey_background">#FAFAFA</color>
     <color name="medium_grey_background">#F9F9F9</color>
     <color name="strong_grey_background">#EBEBEB</color>
+    <color name="custom_red_1">#EB5757</color>
 </resources>

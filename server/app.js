@@ -35,8 +35,7 @@ app.use(session({
  * floor (integer)
  * apartment (integer)
  */
- app.get('/review', (req, res) => {
-
+ app.post('/review', (req, res) => {
     let city = req.body.city;
     let street = req.body.street;
     let number = req.body.number;
@@ -46,7 +45,11 @@ app.use(session({
     let success = false;
 
     let filterRecordsFormula = `And({City} = '${city}', {Address and number} = '${street} ${number}', {Floor} = '${floor}', {Apartment number} = '${apartment}')`;
-    
+    console.log(city);
+    console.log(street);
+    console.log(number);
+    console.log(floor);
+    console.log(apartment);
     if(city == undefined || street == undefined || number == undefined || floor == undefined || apartment == undefined){
         res.status(400).json({status: "Fail", message: "Missing or wrong body parameters"});
     }else{

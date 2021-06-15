@@ -54,10 +54,10 @@ public class ApartmentProfileFragment extends Fragment {
                 "רחוב " + apartmentProfile.getStreet() + " " + apartmentProfile.getBuilding()
         + ", " + apartmentProfile.getCity());
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.floor_number_text)).setText(
-                apartmentProfile.getFloor()
+                Integer.toString(apartmentProfile.getFloor())
         );
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_number_text)).setText(
-                apartmentProfile.getApartment()
+                Integer.toString(apartmentProfile.getApartment())
         );
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_review_num_text)).setText(
                 "(" + apartmentProfile.getNumReviews() + " ביקורות)"
@@ -174,6 +174,7 @@ public class ApartmentProfileFragment extends Fragment {
         void onReviewClick(String headerText, ApartmentReview review);
     }
 
+    /*
     public void fetchApartmentDetails(String city, String streetAddress, int streetNumber,
                                       int floor, int apartment) {
 
@@ -191,5 +192,5 @@ public class ApartmentProfileFragment extends Fragment {
                 }
             }
         });
-    }
+    }*/
 }

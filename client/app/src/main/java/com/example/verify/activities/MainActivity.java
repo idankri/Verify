@@ -4,22 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.animation.Animator;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.verify.R;
 import com.example.verify.components.ApartmentProfile;
 import com.example.verify.components.ApartmentProfileEnriched;
 import com.example.verify.components.ApartmentReview;
+import com.example.verify.data.ApartmentDetailsFetcher;
 import com.example.verify.fragments.AddApartmentFragment;
 import com.example.verify.fragments.ApartmentProfileFragment;
 import com.example.verify.fragments.ApartmentReviewContainerFragment;
@@ -184,16 +188,13 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onSearchButtonClick() {
         ApartmentProfile profile = mSearchFragment.collectApartmentProfile();
-        // TODO: Enrich profile from database
-        ApartmentProfileEnriched enrichedProfile = ApartmentProfileEnriched.fromApartmentProfile(profile);
+        fetchApartmentDetails(
+                profile.getCity(),
+                profile.getStreet(),
+                profile.getBuilding(),
+                profile.getFloor(),
+                profile.getApartment());
 
-        mApartmentProfileFragment.setProfile(enrichedProfile);
-        getSupportFragmentManager().
-                beginTransaction()
-                .replace(R.id.container_fragment, mApartmentProfileFragment)
-                .commit();
-
-        mMainActivityStateManager.pushFragmentState(FragmentState.Found);
     }
 
     @Override
@@ -247,6 +248,33 @@ public class MainActivity extends AppCompatActivity implements
                 .commit();
         mActionBar.setUpReviewText(headerText);
 
+    }
+
+    public void fetchApartmentDetails(String city, String streetAddress, int streetNumber,
+                                      int floor, int apartment) {
+
+        final ApartmentDetailsFetcher fetcher = new ApartmentDetailsFetcher(this);
+
+        // server request
+        fetcher.dispatchRequest(city, streetAddress, streetNumber, floor, apartment, new ApartmentDetailsFetcher.IApartmentDetailsResponseListener() {
+            @Override
+            public void onResponse(ApartmentDetailsFetcher.ApartmentDetailsResponse response) {
+                if(response.hasError()){
+                    Log.e("ApartmentProfileFragment", "Error fetching details from server");
+                    ((TextView)findViewById(R.id.invalid_search_message)).setVisibility(View.VISIBLE);
+                }else{
+                    Log.d("ApartmentProfileFragment", "Succeeded to fetch details from server");
+                    ((TextView)findViewById(R.id.invalid_search_message)).setVisibility(View.INVISIBLE);
+                    mApartmentProfileFragment.setProfile(response.getProfile());
+                    getSupportFragmentManager().
+                            beginTransaction()
+                            .replace(R.id.container_fragment, mApartmentProfileFragment)
+                            .commit();
+
+                    mMainActivityStateManager.pushFragmentState(FragmentState.Found);
+                }
+            }
+        });
     }
 
     private class MainActivityStateManager {
