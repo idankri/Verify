@@ -292,8 +292,8 @@
         android:layout_height="224dp"
         android:layout_below="@+id/apartment_general_ratings"
         android:layout_marginTop="32dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="28dp">
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="100dp">
 
         <LinearLayout
             android:layout_width="wrap_content"

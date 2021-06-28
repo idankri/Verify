@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,14 +29,6 @@ import java.util.Objects;
  */
 public class ApartmentProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private ApartmentProfileEnriched mProfile;
     private ApartmentProfileFragmentListener mApartmentProfileFragmentListener;
@@ -63,7 +56,7 @@ public class ApartmentProfileFragment extends Fragment {
                 "(" + apartmentProfile.getNumReviews() + " ביקורות)"
         );
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_general_rating_num)).setText(
-                Double.toString(apartmentProfile.getGeneralRating())
+                Double.toString((int)apartmentProfile.getGeneralRating())
         );
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_apartment_holder_rating_num)).setText(
                 Double.toString(apartmentProfile.getApartmentHolderRating())
@@ -75,13 +68,13 @@ public class ApartmentProfileFragment extends Fragment {
                 Double.toString(apartmentProfile.getMaintenanceRating())
         );
         ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_maintenance_rating_progress)).setProgress(
-                (int)(apartmentProfile.getApartmentHolderRating() * 20.0)
+                (int)(apartmentProfile.getMaintenanceRating() * 20.0)
         );
         ((TextView)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_around_rating_num)).setText(
                 Double.toString(apartmentProfile.getAroundRating())
         );
         ((LinearProgressIndicator)Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_around_rating_progress)).setProgress(
-                (int)(apartmentProfile.getApartmentHolderRating() * 20.0)
+                (int)(apartmentProfile.getAroundRating() * 20.0)
         );
 
         LinearLayout reviewsList = (LinearLayout) Objects.requireNonNull(getView()).findViewById(R.id.apartment_profile_review_container_constraint);
@@ -89,6 +82,12 @@ public class ApartmentProfileFragment extends Fragment {
         View currentView;
         for(ApartmentReview currentReview : apartmentProfile.getReviews()){
             currentView = getLayoutInflater().inflate(getResources().getLayout(R.layout.fragment_apartment_profile_review_shortcut), null);
+            // TODO: extract to method
+            ((TextView) Objects.requireNonNull(currentView.findViewById(R.id.apartment_review_entry_date))).setText(currentReview.getEntryDate());
+            ((TextView) Objects.requireNonNull(currentView.findViewById(R.id.apartment_review_leave_date))).setText(currentReview.getLeaveDate());
+            ((TextView) Objects.requireNonNull(currentView.findViewById(R.id.review_shortcut_tenant_kind))).setText(currentReview.getTenantsComposition());
+            ((RatingBar) Objects.requireNonNull(currentView.findViewById(R.id.review_shortcut_rating_bar))).setRating((float)currentReview.getGeneralRating());
+
             ViewGroup.LayoutParams a = currentView.getLayoutParams();
             currentView.setMinimumWidth(222);
             currentView.setOnClickListener(new View.OnClickListener() {
@@ -124,8 +123,6 @@ public class ApartmentProfileFragment extends Fragment {
     public static ApartmentProfileFragment newInstance(String param1, String param2) {
         ApartmentProfileFragment fragment = new ApartmentProfileFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -134,8 +131,7 @@ public class ApartmentProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
 
     }
@@ -173,24 +169,4 @@ public class ApartmentProfileFragment extends Fragment {
     public interface ApartmentProfileFragmentListener{
         void onReviewClick(String headerText, ApartmentReview review);
     }
-
-    /*
-    public void fetchApartmentDetails(String city, String streetAddress, int streetNumber,
-                                      int floor, int apartment) {
-
-        final ApartmentDetailsFetcher fetcher = new ApartmentDetailsFetcher(getContext());
-
-        // server request
-        fetcher.dispatchRequest(city, streetAddress, streetNumber, floor, apartment, new ApartmentDetailsFetcher.IApartmentDetailsResponseListener() {
-            @Override
-            public void onResponse(ApartmentDetailsFetcher.ApartmentDetailsResponse response) {
-                if(response.hasError()){
-                    Log.e("ApartmentProfileFragment", "Error fetching details from server");
-                }else{
-                    Log.d("ApartmentProfileFragment", "Succeeded to fetch details from server");
-                    setProfile(response.getProfile());
-                }
-            }
-        });
-    }*/
 }

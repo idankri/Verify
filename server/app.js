@@ -9,11 +9,11 @@ const Airtable = require('airtable');
 // Airtable authentication
 Airtable.configure({
     endpointUrl: 'https://api.airtable.com',
-    apiKey: 'keyeSqlNWGOAWrdCw'
+    apiKey: ''
 });
 
 // 'Verify' base import
-const base = Airtable.base('app2dxKmALjcdGNJN');
+const base = Airtable.base('');
 
 // init app
 let app = express();

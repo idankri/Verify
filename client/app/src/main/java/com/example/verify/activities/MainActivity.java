@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements
         ApartmentProfileFragment.ApartmentProfileFragmentListener {
 
     private ActionBarWrapper mActionBar;
-    //private ActionBar mActionBar;
     private ImageView mAddApr;
     private ImageView mSearchApr;
     private Fragment mDummySearchFragment,
@@ -58,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements
     private IntroductionFragment mIntroductionFragment;
     private ApartmentReviewContainerFragment mApartmentReviewContainerFragment;
     private SurveyFragment mSurveyFragment;
-    //private LottieAnimationView mLottieAnimationView;
 
 
     private MainActivityStateManager mMainActivityStateManager;
@@ -165,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements
                     .commit();
         }
         catch(UnsupportedOperationException e){
-            //super.onBackPressed();
+            //super.onBackPressed(); Uncomment to enable regular back press functionality
         }
 
     }
@@ -187,6 +185,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onSearchButtonClick() {
+            mSearchFragment.getView().findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
         ApartmentProfile profile = mSearchFragment.collectApartmentProfile();
         fetchApartmentDetails(
                 profile.getCity(),
@@ -218,6 +217,8 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onAddApartmentButtonClick() {
+        // Uncomment and comment the rest
+        // to enable browser intent instead of embedded webview activity
         //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.verify_form_url)));
         //startActivity(browserIntent);
         mMainActivityStateManager.pushFragmentState(FragmentState.Survey);
@@ -259,6 +260,7 @@ public class MainActivity extends AppCompatActivity implements
         fetcher.dispatchRequest(city, streetAddress, streetNumber, floor, apartment, new ApartmentDetailsFetcher.IApartmentDetailsResponseListener() {
             @Override
             public void onResponse(ApartmentDetailsFetcher.ApartmentDetailsResponse response) {
+                mSearchFragment.getView().findViewById(R.id.loadingPanel).setVisibility(View.INVISIBLE);
                 if(response.hasError()){
                     Log.e("ApartmentProfileFragment", "Error fetching details from server");
                     ((TextView)findViewById(R.id.invalid_search_message)).setVisibility(View.VISIBLE);

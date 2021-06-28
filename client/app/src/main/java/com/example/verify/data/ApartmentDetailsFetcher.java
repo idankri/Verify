@@ -2,6 +2,7 @@ package com.example.verify.data;
 
 import android.content.Context;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,7 +24,8 @@ import java.util.List;
  */
 public class ApartmentDetailsFetcher {
     private RequestQueue _queue;
-    private String REQUEST_URL = "http://192.168.43.132:3000/review/";
+    // Hardcoded for debug purposes
+    private String REQUEST_URL = "http://18.133.245.223:5000/review/";
 
     public class ApartmentDetailsResponse {
         private boolean isError;
@@ -92,6 +94,11 @@ public class ApartmentDetailsFetcher {
                 listener.onResponse(createErrorResponse());
             }
         });
+
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                100000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         _queue.add(req);
     }

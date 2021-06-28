@@ -36,10 +36,8 @@ public class ActionBarWrapper {
         toolbar.getContentInsetStart();
         toolbar.getContentInsetEnd();
         toolbar.setBackgroundColor(Color.WHITE);
-        //toolbar.setElevation(10);
         mActionBar.setElevation(1);
         mActionBar.hide();
-        //View view = getSupportActionBar().getCustomView();
         setActionBarUtilsVisibility(false);
         mActionBar.getCustomView().findViewById(R.id.back_arrow_logo).setOnClickListener(new View.OnClickListener() {
             @Override
