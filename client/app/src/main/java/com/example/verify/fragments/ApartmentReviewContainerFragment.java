@@ -29,18 +29,10 @@ import java.util.Objects;
 public class ApartmentReviewContainerFragment extends Fragment {
     private ApartmentReview mReview;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
     private ViewPager2 mPager;
+    private ApartmentReviewOverviewFragment mOverviewFragment;
     private Fragment[] mInternalFragments;
     private TabLayout mTabLayout;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public ApartmentReviewContainerFragment() {
         // Required empty public constructor
@@ -58,8 +50,6 @@ public class ApartmentReviewContainerFragment extends Fragment {
     public static ApartmentReviewContainerFragment newInstance(String param1, String param2) {
         ApartmentReviewContainerFragment fragment = new ApartmentReviewContainerFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -68,12 +58,13 @@ public class ApartmentReviewContainerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
 
+
+        mOverviewFragment = new ApartmentReviewOverviewFragment();
         mInternalFragments = new Fragment[] {
-                new ApartmentReviewOverviewFragment(),
+                mOverviewFragment,
                 new ApartmentReviewProsConsFragment(),
                 new ApartmentReviewOpinionFragment(),
                 new ApartmentReviewBottomLineFragment()};
@@ -99,6 +90,7 @@ public class ApartmentReviewContainerFragment extends Fragment {
         mPager.setAdapter(new ScreenSlidePagerAdapter(getActivity(), mInternalFragments));
         mPager.setOffscreenPageLimit(20);
         mPager.setClipToPadding(true);
+        // Uncomment to change tab swipe animations
         //mPager.setPadding(0,0,0,-200);
         //mPager.setPageTransformer(new Transformer);
         //mPager.setPageTransformer(((page, position) -> {
@@ -148,7 +140,8 @@ public class ApartmentReviewContainerFragment extends Fragment {
     }
 
     private void createFromReview(ApartmentReview review){
-        // TODO: uncomment when connected to DB
+
+        mOverviewFragment.setReview(review);
 
     }
 

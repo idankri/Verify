@@ -139,8 +139,8 @@ public class ApartmentReview {
 
 
     private static String dateParser(String date){
-        String year = date.substring(0,3);
-        String month = date.substring(5,6);
+        String year = date.substring(0,4);
+        String month = date.substring(5,7);
         String wordMonth = "";
 
         switch(month){

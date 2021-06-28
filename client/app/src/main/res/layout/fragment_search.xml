@@ -195,6 +195,21 @@
         android:textColor="@color/white"
         android:elevation="10dp" />
 
+    <RelativeLayout
+        android:id="@+id/loadingPanel"
+        android:layout_alignTop="@+id/main_search_button"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:visibility="invisible"
+        android:gravity="center|top" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="visible"/>
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/invalid_search_message"
         android:layout_width="wrap_content"
